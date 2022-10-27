@@ -89,5 +89,31 @@ BEGIN
     WHERE p.id = id;
 END //
 
+CREATE PROCEDURE spRegistrarPedido(
+IN idPuntoVenta int,
+IN idSocio int,
+IN idEmpleado int,
+IN observaciones varchar(100)
+)
+BEGIN
+    INSERT INTO pedidos (idPuntoVenta, idSocio, idEmpleado, idEstado, observaciones, fechaPedido)
+    VALUES (idPuntoVenta, idSocio, idEmpleado, 1, observaciones, now());
+END //
+
+CREATE PROCEDURE spRegistrarDetallePedido(
+IN idPedido int, 
+IN idProducto int,
+IN idPromocion int,
+IN cantidad tinyint,
+IN precioUnitario double,
+IN porcentajeDescuento tinyint,
+IN puntosGanados int,
+IN comentarios varchar(150)
+)
+BEGIN
+    INSERT INTO detallespedido (idPedido, idProducto, idPromocion, cantidad, precioUnitario, porcentajeDescuento, puntosGanados, comentarios)
+    Values (idPedido, idProducto, idPromocion, cantidad, precioUnitario, porcentajeDescuento, puntosGanados, comentarios);
+END //
+
 
 DELIMITER ;
