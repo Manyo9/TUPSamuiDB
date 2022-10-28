@@ -1,6 +1,5 @@
--- Gestion de usuarios
-
 DELIMITER //
+-- Gestion de usuarios
 CREATE PROCEDURE spIniciarSesion(
 IN usuario1 varchar(30),
 IN contrasenia1 varchar(32)
@@ -13,24 +12,60 @@ SELECT u.id, r.nombre as rol,
 
 END //
 
+-- NEW Usuario Socio
 CREATE PROCEDURE spNuevoUsuarioSocio(
 IN usuario1 varchar(30),
 IN contrasenia1 varchar(32)
 )
 BEGIN
-INSERT INTO usuarios(idRol, usuario, contrasenia, fechaAlta) values (1, usuario1, contrasenia1, NOW());
+	declare idSoc int;
+	select idSoc = id, nombre from roles
+    where nombre = 'Socio';
+	INSERT INTO usuarios(idRol, usuario, contrasenia, fechaAlta) values (idSoc, usuario1, contrasenia1, NOW());
 END//
 
-CREATE PROCEDURE spNuevoUsuarioAdmin(
-IN usuario varchar(30),
-IN contrasenia varchar(32)
+-- NEW Usuario Empleado
+CREATE PROCEDURE spNuevoUsuarioEmpleado(
+IN usuario1 varchar(30),
+IN contrasenia1 varchar(32),
+IN idRol1 int
 )
-BEGIN 
-INSERT INTO usuarios(idRol, usuario, contrasenia, fechaAlta) values (2, usuario, contrasenia, NOW());
+
+BEGIN
+	INSERT INTO usuarios(idRol, usuario, contrasenia, fechaAlta) values (idRol1, usuario1, contrasenia1, NOW());
+END//
+
+-- NEW Usuario Admin
+CREATE PROCEDURE spNuevoUsuarioAdmin(
+IN usuario1 varchar(30),
+IN contrasenia1 varchar(32)
+)
+BEGIN
+	declare idAdmin int;
+	select idAdmin = id, nombre from roles
+    where nombre = 'Admin';
+    
+	INSERT INTO usuarios(idRol, usuario, contrasenia, fechaAlta) values (idAdmin, usuario1, contrasenia1, NOW());
+END//
+
+-- Dar de baja Usuario
+CREATE PROCEDURE spDarDeBajaUsuario(
+IN idUsuario1 int,
+OUT status tinyint
+)
+BEGIN
+	DECLARE count int;
+	SELECT count(*) INTO count FROM usuarios u where u.id = idUsuario1 and u.fechaBaja IS NULL;
+    IF (count = 1) THEN
+	BEGIN
+		UPDATE usuarios set fechaBaja = NOW() where id=idUsuario1;
+		SET status = 1;
+    END;
+    ELSE SET status = 0;
+    END IF;
 END//
 
 -- Productos
-
 -- GET ALL
 CREATE PROCEDURE spObtenerProductos()
 BEGIN
@@ -158,10 +193,10 @@ CREATE PROCEDURE spCancelarPedido(
 	IN idPedido INT
 )
 BEGIN
-	select @idCancel = id, nombre from estadospedido
+	declare idCancel int;
+	select idCancel = id, nombre from estadospedido
     where nombre = 'Cancelado';
-    
-    update pedidos p set p.idEstado = @idCancel where p.id = idPedido;
+    update pedidos p set p.idEstado = idCancel where p.id = idPedido;
 END//
 
 -- Borrar un detalle por ID
