@@ -1,4 +1,4 @@
--- Update 01/10/2022
+-- Update 27/10/2022
 CREATE DATABASE samuidb;
 USE samuidb;
 
@@ -123,12 +123,12 @@ CREATE TABLE `samuidb`.`DetallesPedido` (
 
 CREATE TABLE `samuidb`.`MovimientosPuntos` (
 	`id` int NOT NULL AUTO_INCREMENT,
-	`ìdPromocion` int,
+	`idPromocion` int,
 	`idDetallePedido` int,
 	`idSocio` int NOT NULL,
 	`puntos` mediumint NOT NULL,
 	PRIMARY KEY (`id`),
-	FOREIGN KEY (`idPromocion`) REFERENCES Promociones(`id`) 
+	FOREIGN KEY (`idPromocion`) REFERENCES Promociones(`id`), 
 	FOREIGN KEY (`idDetallePedido`) REFERENCES DetallesPedido(`idDetalle`),
 	FOREIGN KEY (`idSocio`) REFERENCES Socios(`id`)
 );
