@@ -16,7 +16,7 @@ CREATE TABLE `samuidb`.`Usuarios` (
 	`fechaAlta` datetime NOT NULL,
 	`fechaBaja` datetime,
 	PRIMARY KEY (`id`),
-	FOREIGN KEY (idRol) REFERENCES Roles(id)
+	FOREIGN KEY (`idRol`) REFERENCES Roles(`id`)
 );
   
   
@@ -31,13 +31,13 @@ CREATE TABLE  `samuidb`.`Empleados` (
 	`fechaAlta` datetime NOT NULL,
 	`fechaBaja` datetime,
 	PRIMARY KEY (`id`),
-	FOREIGN KEY (idUsuario) REFERENCES Usuarios(id)
+	FOREIGN KEY (`idUsuario`) REFERENCES Usuarios(`id`)
 ); 
   
 CREATE TABLE `samuidb`.`PuntosVenta`(
 	`id` int NOT NULL AUTO_INCREMENT,
     `nombre` varchar(50) NOT NULL,
-    PRIMARY KEY (id)
+    PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `samuidb`.`Socios`(
@@ -52,13 +52,13 @@ CREATE TABLE `samuidb`.`Socios`(
 	`fechaAlta` datetime NOT NULL,
 	`fechaBaja` datetime,
 	PRIMARY KEY (`id`),
-	FOREIGN KEY (idUsuario) REFERENCES Usuarios(id));
+	FOREIGN KEY (`idUsuario`) REFERENCES Usuarios(`id`));
   
   
 CREATE TABLE `samuidb`.`EstadosPedido`(
 	`id` int NOT NULL AUTO_INCREMENT,
 	`nombre` varchar(32) NOT NULL,
-	PRIMARY KEY(id)
+	PRIMARY KEY(`id`)
 );
 
 
@@ -71,9 +71,9 @@ CREATE TABLE `samuidb`.`Pedidos`(
 	`observaciones` varchar(100),
 	`fechaPedido` datetime NOT NULL,
 	PRIMARY KEY (`id`),
-	FOREIGN KEY (idPuntoVenta) REFERENCES PuntosVenta(id),
-	FOREIGN KEY (idSocio) REFERENCES Socios(id),
-	FOREIGN KEY (idEmpleado) REFERENCES Empleados(id)
+	FOREIGN KEY (`idPuntoVenta`) REFERENCES PuntosVenta(`id`),
+	FOREIGN KEY (`idSocio`) REFERENCES Socios(`id`),
+	FOREIGN KEY (`idEmpleado`) REFERENCES Empleados(`id`)
 );
   
   
@@ -93,44 +93,44 @@ CREATE TABLE `samuidb`.`Promociones`(
     `id` int NOT NULL AUTO_INCREMENT,
     `nombre` varchar(50),
     `descripcion` varchar(100),
-    `porcentajeDescuento` tinyint NOT NULL,
+    `precioPuntos` mediumint NOT NULL,
     `fechaDesde` datetime NOT NULL,
     `fechaHasta` datetime NOT NULL,
-    PRIMARY KEY (id)
+    PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `samuidb`.`PromocionesXProducto`(
+CREATE TABLE `samuidb`.`DetallePromocion`(
+	`id` int NOT NULL AUTO_INCREMENT,
     `idProducto` int NOT NULL,
     `idPromocion` int NOT NULL,
-    PRIMARY KEY (idProducto, idPromocion),
-    FOREIGN KEY (idProducto) REFERENCES Productos(id),
-    FOREIGN KEY (idPromocion) REFERENCES Promociones(id)
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`idProducto`) REFERENCES Productos(id),
+    FOREIGN KEY (`idPromocion`) REFERENCES Promociones(id)
 );
 
 CREATE TABLE `samuidb`.`DetallesPedido` (
 	`idDetalle` int NOT NULL AUTO_INCREMENT,
 	`idPedido` int NOT NULL,
 	`idProducto` int NOT NULL,
-	`idPromocion` int, 
 	`cantidad` tinyint NOT NULL, 
-	`precioUnitario` double NOT NULL, 
-	`porcentajeDescuento` tinyint NOT NULL,
-	`puntosGanados` int NOT NULL,
+	`precioUnitario` double NOT NULL,
+	`puntosGanados` mediumint NOT NULL,
 	`comentarios` varchar(150),
-	PRIMARY KEY (`idDetalle`) ,
-	FOREIGN KEY (`idPedido`) REFERENCES pedidos(`id`),
-	FOREIGN KEY (`idProducto`) REFERENCES productos(`id`),
-	FOREIGN KEY (`idPromocion`) REFERENCES promociones(`id`)
+	PRIMARY KEY (`idDetalle`),
+	FOREIGN KEY (`idPedido`) REFERENCES Pedidos(`id`),
+	FOREIGN KEY (`idProducto`) REFERENCES Productos(`id`)
 );
 
 CREATE TABLE `samuidb`.`MovimientosPuntos` (
 	`id` int NOT NULL AUTO_INCREMENT,
-	`idDetalle` int NOT NULL,
+	`ìdPromocion` int,
+	`idDetallePedido` int,
 	`idSocio` int NOT NULL,
-	`puntos` int NOT NULL,
+	`puntos` mediumint NOT NULL,
 	PRIMARY KEY (`id`),
-	FOREIGN KEY (idDetalle) REFERENCES DetallesPedido(`idDetalle`),
-	FOREIGN KEY (idSocio) REFERENCES Socios(`id`)
+	FOREIGN KEY (`idPromocion`) REFERENCES Promociones(`id`) 
+	FOREIGN KEY (`idDetallePedido`) REFERENCES DetallesPedido(`idDetalle`),
+	FOREIGN KEY (`idSocio`) REFERENCES Socios(`id`)
 );
   
  CREATE TABLE `samuidb`.`Gustos`(
