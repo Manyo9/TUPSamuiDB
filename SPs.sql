@@ -103,11 +103,13 @@ CREATE PROCEDURE spRegistrarPedido(
 IN idPuntoVenta int,
 IN idSocio int,
 IN idEmpleado int,
-IN observaciones varchar(100)
+IN observaciones varchar(100),
+OUT id int
 )
 BEGIN
     INSERT INTO pedidos (idPuntoVenta, idSocio, idEmpleado, idEstado, observaciones, fechaPedido)
     VALUES (idPuntoVenta, idSocio, idEmpleado, 1, observaciones, now());
+    SET id := last_insert_id();
 END //
 
 -- NEW DETALLE
