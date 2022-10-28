@@ -2,23 +2,23 @@
 
 DELIMITER //
 CREATE PROCEDURE spIniciarSesion(
-IN usuario varchar(30),
-IN contrasenia varchar(32)
+IN usuario1 varchar(30),
+IN contrasenia1 varchar(32)
 )
 BEGIN
 SELECT u.id, r.nombre as rol,
      u.usuario, u.fechaAlta, u.fechaBaja FROM usuarios u
      join roles r on r.id = u.idRol
-     where u.usuario=usuario and u.contrasenia=contrasenia;
+     where u.usuario=usuario1 and u.contrasenia=contrasenia1;
 
 END //
 
 CREATE PROCEDURE spNuevoUsuarioSocio(
-IN usuario varchar(30),
-IN contrasenia varchar(32)
+IN usuario1 varchar(30),
+IN contrasenia1 varchar(32)
 )
 BEGIN
-INSERT INTO usuarios(idRol, usuario, contrasenia, fechaAlta) values (1, usuario, contrasenia, NOW());
+INSERT INTO usuarios(idRol, usuario, contrasenia, fechaAlta) values (1, usuario1, contrasenia1, NOW());
 END//
 
 CREATE PROCEDURE spNuevoUsuarioAdmin(
@@ -100,37 +100,76 @@ END //
 -- Gestion de pedidos
 -- NEW
 CREATE PROCEDURE spRegistrarPedido(
-IN idPuntoVenta int,
-IN idSocio int,
-IN idEmpleado int,
-IN observaciones varchar(100),
+IN idPuntoVenta1 int,
+IN idSocio1 int,
+IN idEmpleado1 int,
+IN observaciones1 varchar(100),
 OUT id int
 )
 BEGIN
     INSERT INTO pedidos (idPuntoVenta, idSocio, idEmpleado, idEstado, observaciones, fechaPedido)
-    VALUES (idPuntoVenta, idSocio, idEmpleado, 1, observaciones, now());
+    VALUES (idPuntoVenta1, idSocio1, idEmpleado1, 1, observaciones1, now());
     SET id := last_insert_id();
 END //
 
 -- NEW DETALLE
 CREATE PROCEDURE spRegistrarDetallePedido(
-IN idPedido int, 
-IN idProducto int,
-IN cantidad tinyint,
-IN precioUnitario double,
-IN puntosGanados int,
-IN comentarios varchar(150)
+IN idPedido1 int, 
+IN idProducto1 int,
+IN cantidad1 tinyint,
+IN precioUnitario1 double,
+IN puntosGanados1 int,
+IN comentarios1 varchar(150)
 )
 BEGIN
     INSERT INTO detallespedido (idPedido, idProducto, cantidad, precioUnitario, puntosGanados, comentarios)
-    Values (idPedido, idProducto, cantidad, precioUnitario, puntosGanados, comentarios);
+    Values (idPedido1, idProducto1, cantidad1, precioUnitario1, puntosGanados1, comentarios1);
 END //
 
 -- GET all Pedidos
 CREATE PROCEDURE spObtenerPedidos()
 BEGIN
-    select p.id, p.idPuntoventa, p.idSocio, p.idEmpleado, p.idEstado, p.observaciones, p.fechaPedido
-    from Pedidos p;
+    select p.id, pv.nombre as puntoVenta,
+    so.apellido+' '+so.nombre as socio,
+    em.apellido+' '+em.nombre as empelado,
+    ep.nombre as estado,
+    p.observaciones, p.fechaPedido
+    from pedidos p 
+    join puntosventa pv on p.idPuntoVenta = pv.id
+    join socios so on p.idSocio = so.id
+    join empleados em on p.idEmpleado = em.id
+    join estadospedido ep on p.idEstado = ep.id;
+END //
+
+-- Get detalles de un pedido
+CREATE PROCEDURE spObtenerDetalles(
+	IN id int
+)
+BEGIN
+    select idDetalle, idProducto, pr.nombre as nombreProducto,
+    cantidad, precioUnitario,
+    dp.puntosGanados, comentarios from detallespedido dp
+    join productos pr on pr.id = dp.idProducto
+    where idPedido = id;
+END //
+
+-- Cancelar un pedido
+CREATE PROCEDURE spCancelarPedido(
+	IN idPedido INT
+)
+BEGIN
+	select @idCancel = id, nombre from estadospedido
+    where nombre = 'Cancelado';
+    
+    update pedidos p set p.idEstado = @idCancel where p.id = idPedido;
+END//
+
+-- Borrar un detalle por ID
+CREATE PROCEDURE spBorrarDetalleId(
+	IN idDetalle1 INT
+)
+BEGIN
+	delete from detallespedido where dp.idDetalle = idDetalle1;
 END //
 
 DELIMITER ;
