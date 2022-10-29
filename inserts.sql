@@ -30,7 +30,7 @@ values (4,'pablo','monticoli','ovidio lagos','pablo@hotmail.com','4214122','3525
 INSERT INTO samuidb.socios (idUsuario,nombre,apellido,domicilio,email,dni,telefono,fechaAlta,fechaBaja) 
 values (null,'Lionel','Messi','Alguna Calle 123','messi@hotmail.com','26598987','0115481852',NOW(),NULL);
 INSERT INTO samuidb.socios (idUsuario,nombre,apellido,domicilio,email,dni,telefono,fechaAlta,fechaBaja) 
-values (null,'Linus','Sebastian','Alguna Calle 123','messi@hotmail.com','26598987','+',NOW(),NULL);
+values (null,'Linus','Sebastian','Canada 555','linussy@linustechtips.net','8975512','0358174226',NOW(),NULL);
 
 
 
