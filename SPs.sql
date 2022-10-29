@@ -268,4 +268,25 @@ BEGIN
 END //
 
 
+##################### SOCIOS #####################
+-- NEW
+CREATE PROCEDURE spRegistrarSocio(
+IN idUsuario1 int,
+IN nombre1 varchar(30),
+IN apellido1 varchar(30),
+IN domicilio1 varchar(50),
+IN email1 varchar(40),
+IN dni1 int,
+IN telefono1 varchar(20),
+IN fechaAlta1 datetime
+)
+BEGIN
+    INSERT INTO socio (idUsuario, nombre, apellido,domicilio,email,dni,telefono,fechaAlta)
+    VALUES (idUsuario1,nombre1,apellido1,domicilio1,email1,dni1,telefono1,NOW());
+END //
+
+
+
+
+
 DELIMITER ;
