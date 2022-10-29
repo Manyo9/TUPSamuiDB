@@ -1,5 +1,5 @@
 DELIMITER //
--- Gestion de usuarios
+##################### USUARIOS #####################
 CREATE PROCEDURE spIniciarSesion(
 IN usuario1 varchar(30),
 IN contrasenia1 varchar(32)
@@ -88,7 +88,7 @@ BEGIN
     END IF;
 END//
 
--- Productos
+##################### PRODUCTOS #####################
 -- GET ALL
 CREATE PROCEDURE spObtenerProductos()
 BEGIN
@@ -155,7 +155,7 @@ BEGIN
     WHERE p.id = id;
 END //
 
--- Gestion de pedidos
+##################### PEDIDOS #####################
 -- NEW
 CREATE PROCEDURE spRegistrarPedido(
 IN idPuntoVenta1 int,
@@ -229,5 +229,40 @@ CREATE PROCEDURE spBorrarDetalleId(
 BEGIN
 	delete from detallespedido dp where dp.idDetalle = idDetalle1;
 END //
+
+##################### GUSTOS #####################
+-- GET all gustos
+CREATE PROCEDURE spObtenerGustos()
+BEGIN
+	select nombre, activo from gustos;
+END //
+
+-- UPDATE gusto by id
+CREATE PROCEDURE spEditarGusto(
+	IN activo1 boolean,
+    IN nombre1 varchar(30),
+    IN id1 int
+)
+BEGIN
+	update gustos set activo = activo1, nombre = nombre1 where id = id1;
+END //
+
+-- CREATE gusto
+CREATE PROCEDURE spCrearGusto(
+	IN nombre1 varchar(30),
+    IN activo1 boolean
+)
+BEGIN
+	INSERT INTO gustos (nombre, activo) VALUES (nombre1, activo1);
+END //
+
+-- DELETE gusto
+CREATE PROCEDURE spEliminarGusto(
+	in id1 int
+)
+BEGIN
+    DELETE FROM gustos WHERE id = id1;
+END //
+
 
 DELIMITER ;
