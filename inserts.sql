@@ -57,7 +57,7 @@ INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activ
 values ('Palito frutal de agua', 60.00, 'Helado de agua de frutilla, naranja, o limón.', null, true, 6, null);
 
 INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, puntosGanados, urlImagen)
-values ('Caja palitos frutales, 20 unidades', 1100.00, '20 unidades de palitos de helado de agua, sabores: frutilla, naranja, o limón.',
+values ('Caja palitos frutales 20 U', 1100.00, '20 unidades de palitos de helado de agua, sabores: frutilla, naranja, o limón.',
 'No disponible por falta de packaging.', false, 110, null);
 
 INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, puntosGanados, urlImagen)
@@ -72,7 +72,17 @@ values ('Salsa de dulce de leche', 200.00, 'Salsa líquida de dulce de leche par
 
 -- Promociones
 INSERT INTO samuidb.promociones (nombre, descripcion, precioPuntos, fechaDesde, fechaHasta) values
-('Promo Palitos bombon');
+('Promo Palitos bombon', 'Llevate 4 palitos bombon.', 560, DATE_SUB(NOW(), INTERVAL 1 DAY), DATE_ADD(NOW(), INTERVAL 10 DAY));
+INSERT INTO samuidb.promociones (nombre, descripcion, precioPuntos, fechaDesde, fechaHasta) values
+('Promo kg y litro', 'Llevate 1kg de helado y un pote de litro con gustos a elección', 3700, DATE_SUB(NOW(), INTERVAL 15 DAY), DATE_ADD(NOW(), INTERVAL 15 DAY));
+INSERT INTO samuidb.promociones (nombre, descripcion, precioPuntos, fechaDesde, fechaHasta) values
+('Promo 2kg', 'Llevate 2kg de helado, eligiendo hasta 8 gustos a elección', 2200, DATE_SUB(NOW(), INTERVAL 18 DAY), DATE_SUB(NOW(), INTERVAL 3 DAY));
+INSERT INTO samuidb.promociones (nombre, descripcion, precioPuntos, fechaDesde, fechaHasta) values
+('Promo 2kg', 'Vuelven los 2kg! Llevate 2kg de helado, eligiendo hasta 8 gustos a elección', 2200, DATE_ADD(NOW(), INTERVAL 15 DAY), DATE_ADD(NOW(), INTERVAL 30 DAY));
 
-
-
+-- Detalle promociones
+INSERT INTO samuidb.detallepromocion (idPromocion, idProducto, cantidad) values (1, 6, 4);
+INSERT INTO samuidb.detallepromocion (idPromocion, idProducto, cantidad) values (2, 4, 1);
+INSERT INTO samuidb.detallepromocion (idPromocion, idProducto, cantidad) values (2, 9, 1);
+INSERT INTO samuidb.detallepromocion (idPromocion, idProducto, cantidad) values (3, 4, 2);
+INSERT INTO samuidb.detallepromocion (idPromocion, idProducto, cantidad) values (4, 4, 2);
