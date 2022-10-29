@@ -27,6 +27,12 @@ INSERT INTO samuidb.socios (idUsuario,nombre,apellido,domicilio,email,dni,telefo
 values (1,'agustin','manyito','messi street 123','manyo@hotmail.com','41236598','35136544782',NOW(),NULL);
 INSERT INTO samuidb.socios (idUsuario,nombre,apellido,domicilio,email,dni,telefono,fechaAlta,fechaBaja) 
 values (4,'pablo','monticoli','ovidio lagos','pablo@hotmail.com','4214122','3525555444',NOW(),NULL);
+INSERT INTO samuidb.socios (idUsuario,nombre,apellido,domicilio,email,dni,telefono,fechaAlta,fechaBaja) 
+values (null,'Lionel','Messi','Alguna Calle 123','messi@hotmail.com','26598987','0115481852',NOW(),NULL);
+INSERT INTO samuidb.socios (idUsuario,nombre,apellido,domicilio,email,dni,telefono,fechaAlta,fechaBaja) 
+values (null,'Linus','Sebastian','Alguna Calle 123','messi@hotmail.com','26598987','+',NOW(),NULL);
+
+
 
 -- Estados de pedido
 INSERT INTO samuidb.estadospedido (nombre) values('Creado');
@@ -147,4 +153,3 @@ INSERT INTO samuidb.detallespedido
 INSERT INTO samuidb.detallespedido
 (idPedido, idProducto, cantidad, precioUnitario, puntosGanados, comentarios) values
 (2, 1, 1, 280, 28, 'Crema del cielo, con salsa de frutilla');
-
