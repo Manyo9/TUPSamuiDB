@@ -87,6 +87,7 @@ INSERT INTO samuidb.detallepromocion (idPromocion, idProducto, cantidad) values 
 INSERT INTO samuidb.detallepromocion (idPromocion, idProducto, cantidad) values (3, 4, 2);
 INSERT INTO samuidb.detallepromocion (idPromocion, idProducto, cantidad) values (4, 4, 2);
 
+-- Gustos
 INSERT INTO samuidb.gustos (nombre, activo) values ('Crema Chantilly',  true);
 INSERT INTO samuidb.gustos (nombre, activo) values ('Crema Flan',  true);
 INSERT INTO samuidb.gustos (nombre, activo) values ('Crema del cielo',  true);
@@ -113,3 +114,37 @@ INSERT INTO samuidb.gustos (nombre, activo) values ('Limón',  true);
 INSERT INTO samuidb.gustos (nombre, activo) values ('Durazno',  true);
 INSERT INTO samuidb.gustos (nombre, activo) values ('Tiramisú',  true);
 INSERT INTO samuidb.gustos (nombre, activo) values ('Mascarpone c/ frutos del bosq',  true);
+
+-- Pedidos y detalle pedidos
+-- 1
+INSERT INTO samuidb.pedidos
+(idPuntoVenta, idSocio, idEmpleado, idEstado, observaciones, fechaPedido) values
+(2, 1, null, 3, 'Abono con efectivo al retirar', DATE_SUB(NOW(), INTERVAL 10 DAY));
+
+INSERT INTO samuidb.detallespedido
+(idPedido, idProducto, cantidad, precioUnitario, puntosGanados) values
+(1, 2, 1, 480, 48);
+
+INSERT INTO samuidb.detallespedido
+(idPedido, idProducto, cantidad, precioUnitario, puntosGanados) values
+(1, 1, 1, 280, 28);
+
+INSERT INTO samuidb.movimientospuntos (idPromocion, idDetallePedido, idSocio, puntos) values
+(null, 2, 1, 48);
+
+INSERT INTO samuidb.movimientospuntos (idPromocion, idDetallePedido, idSocio, puntos) values
+(null, 2, 2, 28);
+
+-- 2
+INSERT INTO samuidb.pedidos
+(idPuntoVenta, idSocio, idEmpleado, idEstado, observaciones, fechaPedido) values
+(2, null, null, 1, 'Retira Jorge Martinez', DATE_SUB(NOW(), INTERVAL 35 MINUTE));
+
+INSERT INTO samuidb.detallespedido
+(idPedido, idProducto, cantidad, precioUnitario, puntosGanados, comentarios) values
+(2, 2, 2, 500, 50, 'DDL y crema del cielo, y chocolate y vainilla');
+
+INSERT INTO samuidb.detallespedido
+(idPedido, idProducto, cantidad, precioUnitario, puntosGanados, comentarios) values
+(2, 1, 1, 280, 28, 'Crema del cielo, con salsa de frutilla');
+
