@@ -227,7 +227,7 @@ CREATE PROCEDURE spBorrarDetalleId(
 	IN idDetalle1 INT
 )
 BEGIN
-	delete from detallespedido where dp.idDetalle = idDetalle1;
+	delete from detallespedido dp where dp.idDetalle = idDetalle1;
 END //
 
 DELIMITER ;
