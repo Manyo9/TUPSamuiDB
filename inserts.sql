@@ -36,16 +36,16 @@ INSERT INTO samuidb.estadospedido (nombre) values('Cancelado');
 
 -- Productos
 INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, puntosGanados, urlImagen)
-values ('Cucurucho de 1 bocha', 350.00, 'Cucurucho clásico con una bocha de helado de gusto a elección', null, true, 35, null);
+values ('Cucurucho de 1 bocha', 280.00, 'Cucurucho clásico con una bocha de helado de gusto a elección', null, true, 28, null);
 
 INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, puntosGanados, urlImagen)
-values ('Cucurucho de 2 bochas', 620.00, 'Cucurucho clásico con dos bochas de helado de gusto a elección', null, true, 62, null);
+values ('Cucurucho de 2 bochas', 500.00, 'Cucurucho clásico con dos bochas de helado de gusto a elección', null, true, 50, null);
 
 INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, puntosGanados, urlImagen)
 values ('Samui Batido', 800.00, 'Batido de helado con leche, un gusto de helado a elección.', null, true, 80, null);
 
 INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, puntosGanados, urlImagen)
-values ('1kg healdo', 1100.00, '1kg de helado, elegir hasta cuatro gustos.', null, true, 120, null);
+values ('1kg healdo', 1100.00, '1kg de helado, elegir hasta cuatro gustos.', null, true, 110, null);
 
 INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, puntosGanados, urlImagen)
 values ('1/2 kg healdo', 650.00, 'Medio kg de helado, elegir hasta tres gustos.', null, true, 65, null);
@@ -58,10 +58,10 @@ values ('Palito frutal de agua', 60.00, 'Helado de agua de frutilla, naranja, o 
 
 INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, puntosGanados, urlImagen)
 values ('Caja palitos frutales, 20 unidades', 1100.00, '20 unidades de palitos de helado de agua, sabores: frutilla, naranja, o limón.',
-'No disponible por falta de packaging.', false, 6, null);
+'No disponible por falta de packaging.', false, 110, null);
 
 INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, puntosGanados, urlImagen)
-values ('Pote 1L helado', 60.00, '1 litro de helado de dulce de leche, chocolate, o vainilla.', null, true, 6, null);
+values ('Pote 1L helado', 750.00, '1 litro de helado de dulce de leche, chocolate, o vainilla.', null, true, 75, null);
 
 INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, puntosGanados, urlImagen)
 values ('Salsa de chocolate', 200.00, 'Salsa líquida de chocolate para agregar a helados.',
