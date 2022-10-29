@@ -102,6 +102,7 @@ CREATE TABLE `samuidb`.`Promociones`(
 CREATE TABLE `samuidb`.`DetallePromocion`(
 	`id` int NOT NULL AUTO_INCREMENT,
     `idProducto` int NOT NULL,
+	`cantidad` mediumint NOT NULL,
     `idPromocion` int NOT NULL,
     PRIMARY KEY (`id`),
     FOREIGN KEY (`idProducto`) REFERENCES Productos(id),
