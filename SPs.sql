@@ -216,10 +216,10 @@ CREATE PROCEDURE spCancelarPedido(
 	IN idPedido INT
 )
 BEGIN
-	declare idCancel int;
-	select idCancel = id, nombre from estadospedido
-    where nombre = 'Cancelado';
-    update pedidos p set p.idEstado = idCancel where p.id = idPedido;
+	select id from estadospedido
+    where nombre = 'Cancelado'
+    into @idCancel;
+    update pedidos p set p.idEstado = @idCancel where p.id = idPedido;
 END//
 
 -- Borrar un detalle por ID
