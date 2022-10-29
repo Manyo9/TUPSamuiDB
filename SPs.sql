@@ -59,6 +59,7 @@ BEGIN
 	INSERT INTO usuarios(idRol, usuario, contrasenia, fechaAlta) values (idRol1, usuario1, contrasenia1, NOW());
 END//
 
+--Revisar el tema del declare
 -- NEW Usuario Admin
 CREATE PROCEDURE spNuevoUsuarioAdmin(
 IN usuario1 varchar(30),
@@ -72,6 +73,7 @@ BEGIN
 	INSERT INTO usuarios(idRol, usuario, contrasenia, fechaAlta) values (idAdmin, usuario1, contrasenia1, NOW());
 END//
 
+--Revisar el tema del declare
 -- Dar de baja Usuario
 CREATE PROCEDURE spDarDeBajaUsuario(
 IN idUsuario1 int,
@@ -97,7 +99,7 @@ BEGIN
 	FROM productos;
 END //
 
--- GET MY ID
+-- GET BY ID
 CREATE PROCEDURE spObtenerProductoPorID(
 	IN id int
 )
