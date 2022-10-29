@@ -35,7 +35,7 @@ BEGIN
     END IF;
 END //
 
---REVISAR DESPUES
+-- REVISAR DESPUES
 -- NEW Usuario Socio
 CREATE PROCEDURE spNuevoUsuarioSocio(
 IN usuario1 varchar(30),
