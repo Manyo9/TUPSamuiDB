@@ -5,11 +5,34 @@ IN usuario1 varchar(30),
 IN contrasenia1 varchar(32)
 )
 BEGIN
-SELECT u.id, r.nombre as rol,
-     u.usuario, u.fechaAlta, u.fechaBaja FROM usuarios u
-     join roles r on r.id = u.idRol
-     where u.usuario=usuario1 and u.contrasenia=contrasenia1;
+    declare role varchar(30);
+    select r1.nombre into role from usuarios u1
+    join roles r1 on r1.id = u1.idRol
+    where u1.usuario=usuario1 and u1.contrasenia=contrasenia1;
 
+	IF (role<>'Socio' AND role IS NOT NULL) THEN
+		BEGIN
+		SELECT u3.id,
+        em.id as idEmpleado,
+        r3.nombre as rol,
+		u3.usuario, u3.fechaAlta,
+        u3.fechaBaja FROM usuarios u3
+		join roles r3 on r3.id = u3.idRol
+        join empleados em on em.idUsuario = u3.id
+		where u3.usuario=usuario1 and u3.contrasenia=contrasenia1;
+		END;
+    ELSE
+		BEGIN
+        SELECT u2.id,
+        so.id as idSocio,
+        r2.nombre as rol,
+		u2.usuario, u2.fechaAlta,
+        u2.fechaBaja FROM usuarios u2
+		join roles r2 on r2.id = u2.idRol
+        join socios so on so.idUsuario = u2.id
+		where u2.usuario=usuario1 and u2.contrasenia=contrasenia1;
+		END;
+    END IF;
 END //
 
 -- NEW Usuario Socio
