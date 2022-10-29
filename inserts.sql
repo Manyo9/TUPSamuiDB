@@ -7,7 +7,7 @@ INSERT INTO samuidb.usuarios (idRol, usuario, contrasenia, fechaAlta) values (2,
 INSERT INTO samuidb.usuarios (idRol, usuario, contrasenia, fechaAlta) values (3, "manyoadmin", "manyo456", NOW());
 INSERT INTO samuidb.usuarios (idRol, usuario, contrasenia, fechaAlta) values (1, "pmonticoli", "qweasd123", NOW());
 
-INSERT INTO samuidb.puntosventa (nombre) values ('Sucursal Samui');
+INSERT INTO samuidb.puntosventa (nombre) values ('Sucursal Samui - Caja 1');
 INSERT INTO samuidb.puntosventa (nombre) values ('Web');
 
 INSERT INTO samuidb.estadospedido(nombre) values('Creado');
