@@ -286,7 +286,22 @@ BEGIN
 END //
 
 
+-- GET all socios
+CREATE PROCEDURE spObtenerSocios()
+BEGIN
+	select * from socios;
+END //
 
+
+-- DELETE
+CREATE PROCEDURE spBorrarSocio(
+IN id int
+)
+BEGIN
+	DELETE 
+    FROM socios s
+    WHERE s.id = id;
+END //
 
 
 DELIMITER ;
