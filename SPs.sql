@@ -277,8 +277,7 @@ IN apellido1 varchar(30),
 IN domicilio1 varchar(50),
 IN email1 varchar(40),
 IN dni1 int,
-IN telefono1 varchar(20),
-IN fechaAlta1 datetime
+IN telefono1 varchar(20)
 )
 BEGIN
     INSERT INTO socio (idUsuario, nombre, apellido,domicilio,email,dni,telefono,fechaAlta)
