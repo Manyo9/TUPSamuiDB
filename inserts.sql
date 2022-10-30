@@ -16,7 +16,7 @@ values (2, 'empleado', 'manyo', '3518963212', 'manyo@samui.com', 41815522, NOW()
 INSERT into samuidb.empleados (idUsuario, nombre, apellido, telefono, email, dni, fechaAlta, fechaBaja)
 values (3, 'admin', 'manyo', '3512548963', 'admin@samui.com', 40698325, NOW(), NULL);
 INSERT into samuidb.empleados (idUsuario, nombre, apellido, telefono, email, dni, fechaAlta, fechaBaja)
-values (3, 'empleado', 'franco', '3513287412', 'abraguas@samui.com', 42587123, NOW(), NULL);
+values (5, 'empleado', 'franco', '3513287412', 'abraguas@samui.com', 42587123, NOW(), NULL);
 
 -- Puntos de venta
 INSERT INTO samuidb.puntosventa (nombre) values ('Sucursal Samui - Caja 1');
@@ -148,8 +148,41 @@ INSERT INTO samuidb.pedidos
 
 INSERT INTO samuidb.detallespedido
 (idPedido, idProducto, cantidad, precioUnitario, puntosGanados, comentarios) values
-(2, 2, 2, 500, 50, 'DDL y crema del cielo, y chocolate y vainilla');
+(2, 2, 2, 500, 100, 'DDL y crema del cielo, y chocolate y vainilla');
 
 INSERT INTO samuidb.detallespedido
 (idPedido, idProducto, cantidad, precioUnitario, puntosGanados, comentarios) values
 (2, 1, 1, 280, 28, 'Crema del cielo, con salsa de frutilla');
+
+-- 3
+INSERT INTO samuidb.pedidos
+(idPuntoVenta, idSocio, idEmpleado, idEstado, observaciones, fechaPedido) values
+(1, 2, 3, 2, 'Abonó con efectivo en caja', DATE_SUB(NOW(), INTERVAL 15 MINUTE));
+
+INSERT INTO samuidb.detallespedido
+(idPedido, idProducto, cantidad, precioUnitario, puntosGanados, comentarios) values
+(3, 3, 5, 800, 400, 'Tres de vainilla y dos de dulce de leche');
+
+INSERT INTO samuidb.movimientospuntos (idPromocion, idDetallePedido, idSocio, puntos) values
+(null, 5, 2, 400);
+
+INSERT INTO samuidb.detallespedido
+(idPedido, idProducto, cantidad, precioUnitario, puntosGanados, comentarios) values
+(3, 9, 3, 750, 225, '1 choco 1 ddl 1 vainill');
+
+INSERT INTO samuidb.movimientospuntos (idPromocion, idDetallePedido, idSocio, puntos) values
+(null, 6, 2, 225);
+
+INSERT INTO samuidb.detallespedido
+(idPedido, idProducto, cantidad, precioUnitario, puntosGanados, comentarios) values
+(3, 11, 2, 200, 40, '1 choco 1 ddl 1 vainill');
+
+INSERT INTO samuidb.movimientospuntos (idPromocion, idDetallePedido, idSocio, puntos) values
+(null, 7, 2, 40);
+
+INSERT INTO samuidb.detallespedido
+(idPedido, idProducto, cantidad, precioUnitario, puntosGanados, comentarios) values
+(3, 4, 1, 1100, 110, '1 choco 1 ddl 1 vainill');
+
+INSERT INTO samuidb.movimientospuntos (idPromocion, idDetallePedido, idSocio, puntos) values
+(null, 8, 2, 110);

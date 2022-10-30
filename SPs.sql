@@ -35,17 +35,15 @@ BEGIN
     END IF;
 END //
 
--- REVISAR DESPUES
 -- NEW Usuario Socio
 CREATE PROCEDURE spNuevoUsuarioSocio(
 IN usuario1 varchar(30),
 IN contrasenia1 varchar(32)
 )
 BEGIN
-	declare idSoc int;
-	select idSoc = id, nombre from roles
+	select id into @idSoc from roles
     where nombre = 'Socio';
-	INSERT INTO usuarios(idRol, usuario, contrasenia, fechaAlta) values (idSoc, usuario1, contrasenia1, NOW());
+	INSERT INTO usuarios(idRol, usuario, contrasenia, fechaAlta) values (@idSoc, usuario1, contrasenia1, NOW());
 END//
 
 -- NEW Usuario Empleado
@@ -59,30 +57,26 @@ BEGIN
 	INSERT INTO usuarios(idRol, usuario, contrasenia, fechaAlta) values (idRol1, usuario1, contrasenia1, NOW());
 END//
 
--- Revisar el tema del declare
 -- NEW Usuario Admin
 CREATE PROCEDURE spNuevoUsuarioAdmin(
 IN usuario1 varchar(30),
 IN contrasenia1 varchar(32)
 )
 BEGIN
-	declare idAdmin int;
-	select idAdmin = id, nombre from roles
+	select id into @idAdmin from roles
     where nombre = 'Admin';
     
-	INSERT INTO usuarios(idRol, usuario, contrasenia, fechaAlta) values (idAdmin, usuario1, contrasenia1, NOW());
+	INSERT INTO usuarios(idRol, usuario, contrasenia, fechaAlta) values (@idAdmin, usuario1, contrasenia1, NOW());
 END//
 
--- Revisar el tema del declare
 -- Dar de baja Usuario
 CREATE PROCEDURE spDarDeBajaUsuario(
 IN idUsuario1 int,
 OUT status tinyint
 )
 BEGIN
-	DECLARE count int;
-	SELECT count(*) INTO count FROM usuarios u where u.id = idUsuario1 and u.fechaBaja IS NULL;
-    IF (count = 1) THEN
+	SELECT count(*) INTO @count FROM usuarios u where u.id = idUsuario1 and u.fechaBaja IS NULL;
+    IF (@count = 1) THEN
 	BEGIN
 		UPDATE usuarios set fechaBaja = NOW() where id=idUsuario1;
 		SET status = 1;
@@ -121,7 +115,7 @@ IN url varchar(100)
 )
 BEGIN
     INSERT INTO productos (nombre, precio, descripcion, observaciones, activo, puntosGanados, urlImagen)
-    VALUES (nom,pre,des,obs,act,pg,url);
+    VALUES (nom, pre, des, obs, act, pg, url);
 END //
 
 -- UPDATE
@@ -284,13 +278,11 @@ BEGIN
     VALUES (idUsuario1,nombre1,apellido1,domicilio1,email1,dni1,telefono1,NOW());
 END //
 
-
 -- GET all socios
 CREATE PROCEDURE spObtenerSocios()
 BEGIN
 	select * from socios;
 END //
-
 
 -- DELETE
 CREATE PROCEDURE spBorrarSocio(
@@ -317,6 +309,4 @@ BEGIN
     ELSE SET status = 0;
     END IF;
 END//
-
-
 DELIMITER ;
