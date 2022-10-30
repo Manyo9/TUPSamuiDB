@@ -185,8 +185,8 @@ END //
 CREATE PROCEDURE spObtenerPedidos()
 BEGIN
     select p.id, pv.nombre as puntoVenta,
-    so.apellido+' '+so.nombre as socio,
-    em.apellido+' '+em.nombre as empelado,
+    CONCAT(so.apellido,' ',so.nombre) as socio,
+    CONCAT(em.apellido,' ',em.nombre) as empelado,
     ep.nombre as estado,
     p.observaciones, p.fechaPedido
     from pedidos p 
@@ -194,6 +194,23 @@ BEGIN
     left join socios so on p.idSocio = so.id
     left join empleados em on p.idEmpleado = em.id
     join estadospedido ep on p.idEstado = ep.id;
+END //
+
+CREATE PROCEDURE spObtenerPedidoPorId(
+	IN id1 int
+)
+BEGIN
+    select p.id, pv.nombre as puntoVenta,
+    CONCAT(so.apellido,' ',so.nombre) as socio,
+    CONCAT(em.apellido,' ',em.nombre) as empelado,
+    ep.nombre as estado,
+    p.observaciones, p.fechaPedido
+    from pedidos p 
+    join puntosventa pv on p.idPuntoVenta = pv.id
+    left join socios so on p.idSocio = so.id
+    left join empleados em on p.idEmpleado = em.id
+    join estadospedido ep on p.idEstado = ep.id
+    where p.id = id1;
 END //
 
 -- Get detalles de un pedido
