@@ -191,8 +191,8 @@ BEGIN
     p.observaciones, p.fechaPedido
     from pedidos p 
     join puntosventa pv on p.idPuntoVenta = pv.id
-    join socios so on p.idSocio = so.id
-    join empleados em on p.idEmpleado = em.id
+    left join socios so on p.idSocio = so.id
+    left join empleados em on p.idEmpleado = em.id
     join estadospedido ep on p.idEstado = ep.id;
 END //
 
