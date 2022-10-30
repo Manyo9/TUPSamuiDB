@@ -274,7 +274,7 @@ IN dni1 int,
 IN telefono1 varchar(20)
 )
 BEGIN
-    INSERT INTO socio (idUsuario, nombre, apellido,domicilio,email,dni,telefono,fechaAlta)
+    INSERT INTO socios (idUsuario, nombre, apellido,domicilio,email,dni,telefono,fechaAlta)
     VALUES (idUsuario1,nombre1,apellido1,domicilio1,email1,dni1,telefono1,NOW());
 END //
 
