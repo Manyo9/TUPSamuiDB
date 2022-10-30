@@ -43,5 +43,53 @@ call spObtenerProductoPorID(12);
 call spBorrarProducto(12);
 call spObtenerProductoPorID(12);
 
+#Traer pedidos
+call spObtenerPedidos();
 
+# Registrar Pedido y obtener pedido por ID
+call spRegistrarPedido(1,1,1,'test',@last_id);
+call spObtenerPedidoPorId(@last_id);
 
+# Obtener detalles de un pedido
+call spObtenerDetalles(1);
+
+# Cancelar un pedido
+call spObtenerPedidoPorId(4);
+call spCancelarPedido(4);
+call spObtenerPedidoPorId(4);
+
+# Agregar un detalle
+select * from productos;
+call spRegistrarDetallePedido(3, 1, 1, 280, 28, 'de dulce de leche granizado');
+call spObtenerDetalles(3);
+
+# Borrar un detalle por id
+call spBorrarDetalleId(9);
+call spObtenerDetalles(3);
+
+# Get all gustos
+call spObtenerGustos();
+
+# Editar un gusto
+call spEditarGusto(1, 'Crema Chantilly test', false);
+call spObtenerGustos();
+
+# Create gusto
+call spCrearGusto('Test gusto', 1);
+call spObtenerGustos();
+
+# Delete gusto
+call spEliminarGusto(27);
+
+# Registrar socio
+call spRegistrarSocio(null, 'test', 'name', 'test street', 'test@prueba.com', 12345678, '351234567');
+
+# Get ALL socios
+call spObtenerSocios();
+
+# Borrar un socio
+call spBorrarSocio(5);
+
+# Dar de baja socio
+call spDarDeBajaSocio(6, @status);
+select @status;
