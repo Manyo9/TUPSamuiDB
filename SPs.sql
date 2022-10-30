@@ -302,5 +302,21 @@ BEGIN
     WHERE s.id = id;
 END //
 
+CREATE PROCEDURE spDarDeBajaSocio(
+IN idSocio1 int,
+OUT status tinyint
+)
+BEGIN
+	DECLARE count int;
+	SELECT count(*) INTO count FROM socios s where s.id = idSocio1 and s.fechaBaja IS NULL;
+    IF (count = 1) THEN
+	BEGIN
+		UPDATE socios set fechaBaja = NOW() where id=idSocio1;
+		SET status = 1;
+    END;
+    ELSE SET status = 0;
+    END IF;
+END//
+
 
 DELIMITER ;
