@@ -16,7 +16,7 @@ values (2, 'empleado', 'manyo', '3518963212', 'manyo@samui.com', 41815522, NOW()
 INSERT into samuidb.empleados (idUsuario, nombre, apellido, telefono, email, dni, fechaAlta, fechaBaja)
 values (3, 'admin', 'manyo', '3512548963', 'admin@samui.com', 40698325, NOW(), NULL);
 INSERT into samuidb.empleados (idUsuario, nombre, apellido, telefono, email, dni, fechaAlta, fechaBaja)
-values (3, 'empleado', 'franco', '3513287412', 'abraguas@samui.com', 42587123, NOW(), NULL);
+values (5, 'empleado', 'franco', '3513287412', 'abraguas@samui.com', 42587123, NOW(), NULL);
 
 -- Puntos de venta
 INSERT INTO samuidb.puntosventa (nombre) values ('Sucursal Samui - Caja 1');
