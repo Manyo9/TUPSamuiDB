@@ -253,9 +253,9 @@ END //
 
 -- UPDATE gusto by id
 CREATE PROCEDURE spEditarGusto(
-	IN activo1 boolean,
+    IN id1 int,
     IN nombre1 varchar(30),
-    IN id1 int
+    IN activo1 boolean
 )
 BEGIN
 	update gustos set activo = activo1, nombre = nombre1 where id = id1;
