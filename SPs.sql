@@ -329,8 +329,34 @@ END//
 
 
 ##################### PROMOCIONES #####################
+-- NEW
+CREATE PROCEDURE spRegistrarPromocion(
+IN nombre1 varchar(50),
+IN descripcion1 varchar(100),
+IN precioPuntos1 mediumint,
+IN fechaDesde1 datetime,
+IN fechaHasta1 datetime,
+OUT id int
+)
+BEGIN
+    INSERT INTO promociones (nombre, descripcion, precioPuntos, fechaDesde, fechaHasta)
+    VALUES (nombre1, descripcion1, precioPuntos1, fechaDesde1, fechaHasta1);
+    SET id := last_insert_id();
+END //
 
--- GET ALL promociones
+-- NEW DETALLE
+CREATE PROCEDURE spRegistrarDetallePromocion(
+IN idPromocion1 int, 
+IN idProducto1 int,
+IN cantidad1 tinyint
+)
+BEGIN
+    INSERT INTO detallepromocion (idPromocion, idProducto, cantidad)
+    Values (idPromocion1, idProducto1, cantidad1);
+END //
+
+
+-- GET all promociones
 CREATE PROCEDURE spObtenerPromociones()
 BEGIN
 	select p.nombre,p.descripcion,p.precioPuntos,p.fechaDesde,p.fechaHasta
