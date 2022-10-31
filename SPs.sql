@@ -326,4 +326,26 @@ BEGIN
     ELSE SET status = 0;
     END IF;
 END//
+
+
+##################### PROMOCIONES #####################
+
+-- GET ALL promociones
+CREATE PROCEDURE spObtenerPromociones()
+BEGIN
+	select p.nombre,p.descripcion,p.precioPuntos,p.fechaDesde,p.fechaHasta
+    from promociones p;
+END //
+
+
+-- GET detalles de una promocion
+CREATE PROCEDURE spObtenerDetallesPromocion(
+	IN id int
+)
+BEGIN
+    select dp.id , pr.nombre as nombreProducto,
+    cantidad from detallepromocion dp
+    join productos pr on pr.id = dp.idProducto
+    where idPromocion = id;
+END //
 DELIMITER ;
