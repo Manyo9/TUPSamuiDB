@@ -93,3 +93,10 @@ call spBorrarSocio(5);
 # Dar de baja socio
 call spDarDeBajaSocio(6, @status);
 select @status;
+
+# Registrar promocion
+call spRegistrarPromocion('Promocion Test', 'descripcion', 123,  DATE_ADD(NOW(), INTERVAL 15 DAY), DATE_ADD(NOW(), INTERVAL 30 DAY), @idpromotest);
+select @idpromotest;
+
+# Registrar detalle promocion
+call spRegistrarDetallePromocion(@idpromotest,1,5);
