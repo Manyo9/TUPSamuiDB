@@ -375,6 +375,12 @@ BEGIN
     where idPromocion = id;
 END //
 
+-- GET promociones vigentes
+CREATE PROCEDURE spObtenerPromocionesVigentes()
+BEGIN 
+    SELECT * from promociones
+    where now() between fechaDesde and fechaHasta;
+END //
 
 
 ##################### EMPLEADOS #####################
