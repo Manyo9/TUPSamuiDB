@@ -196,6 +196,7 @@ BEGIN
     join estadospedido ep on p.idEstado = ep.id;
 END //
 
+-- GET Pedido by ID
 CREATE PROCEDURE spObtenerPedidoPorId(
 	IN id1 int
 )
@@ -211,6 +212,18 @@ BEGIN
     left join empleados em on p.idEmpleado = em.id
     join estadospedido ep on p.idEstado = ep.id
     where p.id = id1;
+END //
+
+-- GET Pedidos de un socio
+CREATE PROCEDURE spObtenerMisPedidos(
+	IN idSocio int
+)
+BEGIN
+    select p.id,
+    ep.nombre as estado,
+	p.fechaPedido
+    from pedidos p
+    join estadospedido ep on p.idEstado = ep.id;
 END //
 
 -- Get detalles de un pedido
