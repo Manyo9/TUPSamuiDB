@@ -261,8 +261,9 @@ END //
 -- GET all gustos
 CREATE PROCEDURE spObtenerGustos()
 BEGIN
-	select nombre, activo from gustos;
+	select id,nombre, activo from gustos;
 END //
+
 
 -- UPDATE gusto by id
 CREATE PROCEDURE spEditarGusto(
