@@ -382,6 +382,14 @@ BEGIN
     where now() between fechaDesde and fechaHasta;
 END //
 
+-- Actualizar estado de pedido
+CREATE PROCEDURE spActualizarEstadoPedido(
+	IN idEstado1 int,
+    IN idPedido1 int
+)
+BEGIN
+	UPDATE samuidb.pedidos set idEstado = idEstado1 where id = idPedido1;
+END //
 
 ##################### EMPLEADOS #####################
 
