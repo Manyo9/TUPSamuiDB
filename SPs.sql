@@ -89,7 +89,7 @@ END//
 -- GET ALL
 CREATE PROCEDURE spObtenerProductos()
 BEGIN
-    SELECT id, nombre, precio, descripcion, observaciones, activo, puntosGanados, urlImagen
+    SELECT id, nombre, precio, descripcion, observaciones, activo, disponible, puntosGanados, urlImagen
 	FROM productos;
 END //
 
@@ -98,7 +98,7 @@ CREATE PROCEDURE spObtenerProductoPorID(
 	IN id int
 )
 BEGIN
-    SELECT p.id, p.nombre, p.precio, p.descripcion, p.observaciones, p.activo, p.puntosGanados, p.urlImagen
+    SELECT p.id, p.nombre, p.precio, p.descripcion, p.observaciones, p.activo, p.disponible, p.puntosGanados, p.urlImagen
 	FROM productos p
     WHERE p.id = id;
 END //
@@ -110,12 +110,13 @@ IN pre double,
 IN des varchar(100),
 IN obs varchar(100),
 IN act boolean,
+IN disp boolean,
 IN pg int,
 IN url varchar(100)
 )
 BEGIN
-    INSERT INTO productos (nombre, precio, descripcion, observaciones, activo, puntosGanados, urlImagen)
-    VALUES (nom, pre, des, obs, act, pg, url);
+    INSERT INTO productos (nombre, precio, descripcion, observaciones, activo, disponible, puntosGanados, urlImagen)
+    VALUES (nom, pre, des, obs, act, disp, pg, url);
 END //
 
 -- UPDATE
@@ -126,6 +127,7 @@ IN pre double,
 IN des varchar(100),
 IN obs varchar(100),
 IN act boolean,
+IN disp boolean,
 IN pg int,
 IN url varchar(100)
 )
@@ -136,6 +138,7 @@ BEGIN
     descripcion = des,
     observaciones = obs,
     activo = act,
+    disponible = disp,
     puntosGanados = pg,
     urlImagen = url
     WHERE id = i;

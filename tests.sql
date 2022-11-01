@@ -33,10 +33,10 @@ call spObtenerProductos();
 call spObtenerProductoPorID(1);
 
 #Crear producto
-call spInsertarProducto('Test producto', 1, 'prueba','prueba',false,0,null);
+call spInsertarProducto('Test producto', 1, 'prueba','prueba',false,false,0,null);
 
 #Actualizar producto
-call spActualizarProducto(12, 'Nombre cambiado', 0, 'prueba cambiada', 'prueba cambiada',true, 1, 'test.png');
+call spActualizarProducto(12, 'Nombre cambiado', 0, 'prueba cambiada', 'prueba cambiada',true, true, 1, 'test.png');
 call spObtenerProductoPorID(12);
 
 #Borrar Producto

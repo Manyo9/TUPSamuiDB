@@ -84,6 +84,7 @@ CREATE TABLE `samuidb`.`Productos` (
 	`descripcion` varchar(100), 
 	`observaciones` varchar(100), 
 	`activo` boolean NOT NULL, 
+	`disponible` boolean NOT NULL,
 	`puntosGanados` int NOT NULL,
 	`urlImagen` varchar(100),
 	PRIMARY KEY (`id`)

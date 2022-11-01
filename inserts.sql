@@ -41,40 +41,40 @@ INSERT INTO samuidb.estadospedido (nombre) values('Entregado');
 INSERT INTO samuidb.estadospedido (nombre) values('Cancelado');
 
 -- Productos
-INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, puntosGanados, urlImagen)
-values ('Cucurucho de 1 bocha', 280.00, 'Cucurucho clásico con una bocha de helado de gusto a elección', null, true, 28, '../../../../assets/imgProductos/1bocha.jpg');
+INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, disponible, puntosGanados, urlImagen)
+values ('Cucurucho de 1 bocha', 280.00, 'Cucurucho clásico con una bocha de helado de gusto a elección', null, true, true, 28, '../../../../assets/imgProductos/1bocha.jpg');
 
-INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, puntosGanados, urlImagen)
-values ('Cucurucho de 2 bochas', 500.00, 'Cucurucho clásico con dos bochas de helado de gusto a elección', null, true, 50, '../../../../assets/imgProductos/2bochas.jpg');
+INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, disponible, puntosGanados, urlImagen)
+values ('Cucurucho de 2 bochas', 500.00, 'Cucurucho clásico con dos bochas de helado de gusto a elección', null, true, true, 50, '../../../../assets/imgProductos/2bochas.jpg');
 
-INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, puntosGanados, urlImagen)
-values ('Samui Batido', 800.00, 'Batido de helado con leche, un gusto de helado a elección.', null, true, 80, '../../../../assets/imgProductos/milkShake.jpg');
+INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, disponible, puntosGanados, urlImagen)
+values ('Samui Batido', 800.00, 'Batido de helado con leche, un gusto de helado a elección.', null, true, true, 80, '../../../../assets/imgProductos/milkShake.jpg');
 
-INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, puntosGanados, urlImagen)
-values ('1kg healdo', 1100.00, '1kg de helado, elegir hasta cuatro gustos.', null, true, 110, '../../../../assets/imgProductos/1kghelado.jpg');
+INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, disponible, puntosGanados, urlImagen)
+values ('1kg healdo', 1100.00, '1kg de helado, elegir hasta cuatro gustos.', null, true, true, 110, '../../../../assets/imgProductos/1kghelado.jpg');
 
-INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, puntosGanados, urlImagen)
-values ('1/2 kg healdo', 650.00, 'Medio kg de helado, elegir hasta tres gustos.', null, true, 65, '../../../../assets/imgProductos/medioKg.jpg');
+INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, disponible, puntosGanados, urlImagen)
+values ('1/2 kg healdo', 650.00, 'Medio kg de helado, elegir hasta tres gustos.', null, true, true, 65, '../../../../assets/imgProductos/medioKg.jpg');
 
-INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, puntosGanados, urlImagen)
-values ('Palito bombón', 75.00, 'Helado de crema bañado en chocolate en palito.', null, true, 7, '../../../../assets/imgProductos/palitoBombon.jfif');
+INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, disponible, puntosGanados, urlImagen)
+values ('Palito bombón', 75.00, 'Helado de crema bañado en chocolate en palito.', null, true, true, 7, '../../../../assets/imgProductos/palitoBombon.jfif');
 
-INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, puntosGanados, urlImagen)
-values ('Palito frutal de agua', 60.00, 'Helado de agua de frutilla, naranja, o limón.', null, true, 6, '../../../../assets/imgProductos/palitoFrutal.png');
+INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, disponible, puntosGanados, urlImagen)
+values ('Palito frutal de agua', 60.00, 'Helado de agua de frutilla, naranja, o limón.', null, true, true, 6, '../../../../assets/imgProductos/palitoFrutal.png');
 
-INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, puntosGanados, urlImagen)
+INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, disponible, puntosGanados, urlImagen)
 values ('Caja palitos frutales 20 U', 1100.00, '20 unidades de palitos de helado de agua, sabores: frutilla, naranja, o limón.',
-'No disponible por falta de packaging.', false, 110, '../../../../assets/imgProductos/cajaFrutal.jpg');
+'No disponible por falta de packaging.', false, false, 110, '../../../../assets/imgProductos/cajaFrutal.jpg');
 
-INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, puntosGanados, urlImagen)
-values ('Pote 1L helado', 750.00, '1 litro de helado de dulce de leche, chocolate, o vainilla.', null, true, 75, '../../../../assets/imgProductos/litroHelado.png');
+INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, disponible, puntosGanados, urlImagen)
+values ('Pote 1L helado', 750.00, '1 litro de helado de dulce de leche, chocolate, o vainilla.', null, true, true, 75, '../../../../assets/imgProductos/litroHelado.png');
 
-INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, puntosGanados, urlImagen)
+INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, disponible, puntosGanados, urlImagen)
 values ('Salsa de chocolate', 200.00, 'Salsa líquida de chocolate para agregar a helados.',
-'Dado de baja por falta de acuerdo con proveedor', false, 20, '../../../../assets/imgProductos/salsaChocolate.jpg');
+'Dado de baja por falta de acuerdo con proveedor', true, false, 20, '../../../../assets/imgProductos/salsaChocolate.jpg');
 
-INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, puntosGanados, urlImagen)
-values ('Salsa de dulce de leche', 200.00, 'Salsa líquida de dulce de leche para agregar a helados.', null, true, 20, '../../../../assets/imgProductos/salsaDulceLeche.jpg');
+INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, disponible, puntosGanados, urlImagen)
+values ('Salsa de dulce de leche', 200.00, 'Salsa líquida de dulce de leche para agregar a helados.', null, true, true, 20, '../../../../assets/imgProductos/salsaDulceLeche.jpg');
 
 -- Promociones
 INSERT INTO samuidb.promociones (nombre, descripcion, precioPuntos, fechaDesde, fechaHasta) values
