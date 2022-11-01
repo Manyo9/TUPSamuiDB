@@ -429,6 +429,24 @@ BEGIN
 	UPDATE samuidb.pedidos set idEstado = idEstado1 where id = idPedido1;
 END //
 
+-- Canjear promocion
+CREATE PROCEDURE spCanjearPuntos(
+	IN idPromocion1 int,
+    IN idSocio1 int
+)
+BEGIN
+	SELECT id, precioPuntos INTO @idPromo, @puntosConsumidos
+    FROM promociones WHERE id = idPromocion1;
+	INSERT INTO movimientospuntos (idPromocion, idSocio, puntos)
+    values (@idPromo, idSocio, @puntosConsumidos);
+    SET @idMov := last_insert_id();
+    
+    SELECT id INTO @idPV FROM puntosventa WHERE nombre = 'Web';
+    SELECT id INTO @idEst FROM estadospedido WHERE nombre = 'Pagado';
+    INSERT INTO pedidos (idPuntoVenta, idSocio, idEstado, observaciones, fechaPedido)
+    values (@idPV, idSocio1, @idEst, CONCAT('Según movimiento con ID ', @idMov), NOW());
+END //
+
 ##################### EMPLEADOS #####################
 
 -- NEW
