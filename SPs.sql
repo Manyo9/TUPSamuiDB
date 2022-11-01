@@ -142,12 +142,12 @@ BEGIN
     
 END //
 
--- DELETE
+-- DELETE logico
 CREATE PROCEDURE spBorrarProducto(
 IN id int
 )
 BEGIN
-	DELETE 
+	UPDATE 
     FROM productos p
     WHERE p.id = id;
 END //
