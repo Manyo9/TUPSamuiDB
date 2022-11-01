@@ -393,14 +393,12 @@ BEGIN
     Values (idPromocion1, idProducto1, cantidad1);
 END //
 
-
 -- GET all promociones
 CREATE PROCEDURE spObtenerPromociones()
 BEGIN
 	select p.id, p.nombre,p.descripcion,p.precioPuntos,p.fechaDesde,p.fechaHasta
     from promociones p;
 END //
-
 
 -- GET detalles de una promocion
 CREATE PROCEDURE spObtenerDetallesPromocion(
@@ -445,6 +443,21 @@ BEGIN
     SELECT id INTO @idEst FROM estadospedido WHERE nombre = 'Pagado';
     INSERT INTO pedidos (idPuntoVenta, idSocio, idEstado, observaciones, fechaPedido)
     values (@idPV, idSocio1, @idEst, CONCAT('Según movimiento con ID ', @idMov), NOW());
+END //
+
+-- Editar promoción
+CREATE PROCEDURE spEditarPromocion(
+	IN idPromocion1 int,
+    IN nombre1 varchar(50),
+    IN descripcion1 varchar(100),
+    IN precioPuntos mediumint,
+    IN fechaDesde1 datetime,
+    IN fechaHasta1 datetime
+)
+BEGIN
+	UPDATE promociones SET nombre = nombre1,
+    descripcion = descripcion1, precioPuntos = precioPuntos1,
+    fechaDesde = fechaDesde1, fechaHasta = fechaHasta1;
 END //
 
 ##################### EMPLEADOS #####################
