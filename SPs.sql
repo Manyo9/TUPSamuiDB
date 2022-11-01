@@ -322,6 +322,22 @@ BEGIN
 	select * from socios where id = idSocio;
 END //
 
+-- Modificar Socio
+CREATE PROCEDURE spModificarSocio(
+	IN nombre1 varchar(30),
+    IN apellido1 varchar(30),
+    IN domicilio1 varchar(50),
+    IN email1 varchar(40),
+    IN telefono1 varchar(20),
+    IN idSocio int
+)
+BEGIN
+	UPDATE socios SET nombre = nombre1,
+    apellido = apellido1, domicilio = domicilio1,
+    email = email1, telefono = telefono1
+    WHERE id = idSocio;
+END //
+
 -- DELETE
 CREATE PROCEDURE spBorrarSocio(
 IN id int
@@ -332,6 +348,7 @@ BEGIN
     WHERE s.id = id;
 END //
 
+-- Dar de baja
 CREATE PROCEDURE spDarDeBajaSocio(
 IN idSocio1 int,
 OUT status tinyint
