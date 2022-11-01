@@ -30,7 +30,7 @@ select *, @status from usuarios where usuario = 'testuser';
 call spObtenerProductos();
 
 #Obtener productos activos
-call spObtenerProductos();
+call spObtenerProductosActivos();
 
 #Obtener producto por ID
 call spObtenerProductoPorID(1);
