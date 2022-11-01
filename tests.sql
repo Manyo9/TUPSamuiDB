@@ -29,6 +29,9 @@ select *, @status from usuarios where usuario = 'testuser';
 #Obtener productos
 call spObtenerProductos();
 
+#Obtener productos activos
+call spObtenerProductos();
+
 #Obtener producto por ID
 call spObtenerProductoPorID(1);
 
