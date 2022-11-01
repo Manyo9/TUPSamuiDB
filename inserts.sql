@@ -74,7 +74,7 @@ values ('Salsa de chocolate', 200.00, 'Salsa líquida de chocolate para agregar 
 'Dado de baja por falta de acuerdo con proveedor', false, 20, '../../../../assets/imgProductos/salsaChocolate.jpg');
 
 INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, puntosGanados, urlImagen)
-values ('Salsa de dulce de leche', 200.00, 'Salsa líquida de dulce de leche para agregar a helados.', null, true, 20, '../../../../assets/imgProductos/salsaChocolate.jpg');
+values ('Salsa de dulce de leche', 200.00, 'Salsa líquida de dulce de leche para agregar a helados.', null, true, 20, '../../../../assets/imgProductos/salsaDulceLeche.jpg');
 
 -- Promociones
 INSERT INTO samuidb.promociones (nombre, descripcion, precioPuntos, fechaDesde, fechaHasta) values
