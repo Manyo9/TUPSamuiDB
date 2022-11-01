@@ -458,7 +458,18 @@ CREATE PROCEDURE spEditarPromocion(
 BEGIN
 	UPDATE promociones SET nombre = nombre1,
     descripcion = descripcion1, precioPuntos = precioPuntos1,
-    fechaDesde = fechaDesde1, fechaHasta = fechaHasta1;
+    fechaDesde = fechaDesde1, fechaHasta = fechaHasta1
+    WHERE id = idPromocion1;
+END //
+
+-- Terminar promoción
+CREATE PROCEDURE spTerminarPromocion(
+	IN idPromocion1 int
+)
+BEGIN
+	UPDATE promociones
+    SET fechaHasta = NOW()
+    WHERE id = idPromocion1;
 END //
 
 ##################### EMPLEADOS #####################
