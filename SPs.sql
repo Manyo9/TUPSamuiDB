@@ -536,5 +536,17 @@ BEGIN
 	ORDER BY cantPedidos DESC;
 END //
 
-
+-- Cantidad de veces vendidas y promedio de unidades vendidas por pedido de cada producto
+CREATE PROCEDURE spReporteProductos(
+IN fechaDesde datetime,
+IN fechaHasta datetime 
+)
+BEGIN
+    select p.id, p.nombre, sum(d.cantidad) as 'cantidadVendida', avg(d.cantidad) as 'promedioCantidad'
+	from detallespedido d join productos p
+	on d.idProducto = p.id 
+	join pedidos pe on d.idPedido = pe.id
+	where fechaPedido between fechaDesde and fechaHasta
+	group by p.id;
+END //
 DELIMITER ;
