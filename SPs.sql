@@ -496,4 +496,45 @@ BEGIN
     INSERT INTO socios (idUsuario, nombre, apellido,domicilio,email,dni,telefono,fechaAlta)
     VALUES (idUsuario1,nombre1,apellido1,telefono1,email1,dni1,NOW());
 END //
+
+
+##################### REPORTES #####################
+
+-- Reportes SOCIOS
+--  Cantidad de socios nuevos
+CREATE PROCEDURE spObtenerCantSociosNuevos(
+IN fechaDesde1 datetime,
+IN fechaHasta1 datetime
+)
+BEGIN
+	SELECT count(id) as 'cantSociosNuevos'
+    FROM socios
+    WHERE fechaAlta between fechaDesde1 and fechaHasta1;
+END //
+
+-- Cantidad de socios dados de baja
+CREATE PROCEDURE spObtenerCantSociosBaja(
+IN fechaDesde1 datetime,
+IN fechaHasta1 datetime 
+)
+BEGIN
+	SELECT count(id) as 'cantSociosBaja' 
+    FROM socios
+    WHERE fechaBaja is not null and fechaBaja between fechaDesde1 and fechaHasta1;
+END //
+
+-- Socios que han realizado la mayor cantidad de pedidos en un período
+CREATE PROCEDURE spCantPedidosPeriodo(
+IN fechaDesde1 datetime,
+IN fechaHasta1 datetime
+)
+BEGIN 
+	SELECT s.id ID,s.nombre as 'NombreSocio',count(p.id) as 'cantPedidos'
+    FROM socios s join pedidos p on s.id=p.idSocio
+    WHERE fechaAlta between fechaDesde1 and fechaHasta1
+        GROUP BY nombre
+	ORDER BY cantPedidos DESC;
+END //
+
+
 DELIMITER ;
