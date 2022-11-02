@@ -460,7 +460,7 @@ CREATE PROCEDURE spEditarPromocion(
 	IN idPromocion1 int,
     IN nombre1 varchar(50),
     IN descripcion1 varchar(100),
-    IN precioPuntos mediumint,
+    IN precioPuntos1 mediumint,
     IN fechaDesde1 datetime,
     IN fechaHasta1 datetime
 )
