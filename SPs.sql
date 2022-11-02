@@ -549,4 +549,27 @@ BEGIN
 	where fechaPedido between fechaDesde and fechaHasta
 	group by p.id;
 END //
+
+CREATE PROCEDURE spSociosConMasPuntos(
+IN limite int
+)
+BEGIN
+    select a.idSocio, CONCAT(s.apellido,' ',s.nombre) as socio, s.dni, ifnull(a.puntosPositivos,0) - ifnull(b.puntosNegativos,0) as puntos
+	from (
+		select idSocio, sum(puntos) as puntosPositivos
+		from movimientospuntos
+		where idDetallePedido is not null
+		group by idSocio
+	) as a left join 
+	(
+		select idSocio, sum(puntos) as puntosNegativos
+		from movimientospuntos
+		where idPromocion is not null
+		group by idSocio
+	) as b
+	on a.idSocio = b.idSocio 
+	join socios s on a.idSocio = s.id
+	order by puntos desc
+	limit limite;
+END //
 DELIMITER ;
