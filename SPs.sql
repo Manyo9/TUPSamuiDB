@@ -446,7 +446,7 @@ BEGIN
 	SELECT id, precioPuntos INTO @idPromo, @puntosConsumidos
     FROM promociones WHERE id = idPromocion1;
 	INSERT INTO movimientospuntos (idPromocion, idSocio, puntos)
-    values (@idPromo, idSocio, @puntosConsumidos);
+    values (@idPromo, idSocio1, @puntosConsumidos);
     SET @idMov := last_insert_id();
     
     SELECT id INTO @idPV FROM puntosventa WHERE nombre = 'Web';
