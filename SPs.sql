@@ -580,4 +580,17 @@ BEGIN
 	select id,nombre from tipospago;
 END //
 
+-- POST cobro
+CREATE PROCEDURE spCobrar(
+IN idPedido1 int,
+IN idTipoPago1 int,
+IN idEmpleado1 int,
+IN codigoAutorizacion1 int,
+IN montoCobrado1 double
+)
+BEGIN 
+	INSERT INTO cobros(idPedido,idTipoPago,idEmpleado,fechaCobro,codigoAutorizacion,montoCobrado) 
+    VALUES (idPedido1,idTipoPago1,idEmpleado1,NOW(),codigoAutorizacion1,montoCobrado1);
+END //
+
 DELIMITER ;
