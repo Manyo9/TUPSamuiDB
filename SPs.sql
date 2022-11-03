@@ -266,6 +266,16 @@ BEGIN
 	delete from detallespedido dp where dp.idDetalle = idDetalle1;
 END //
 
+
+-- GET  pedidos pendientes
+CREATE PROCEDURE spObtenerPedidosPendientes(
+IN idEstado1 int
+)
+BEGIN
+	SELECT * FROM pedidos p join estadospedido ep on p.idEstado = ep.id
+	WHERE idEstado1=1 or idEstado=2;
+END //
+
 ##################### GUSTOS #####################
 -- GET all gustos
 CREATE PROCEDURE spObtenerGustos()
