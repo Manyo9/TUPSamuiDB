@@ -156,7 +156,7 @@ INSERT INTO samuidb.pedidos
 
 INSERT INTO samuidb.detallespedido
 (idPedido, idProducto, cantidad, precioUnitario, puntosGanados, comentarios) values
-(2, 2, 2, 500, 100, 'DDL y crema del cielo, y chocolate y vainilla');
+(2, 2, 2, 500, 100, 'Dulce de leche granizado y Tiramisú');
 
 INSERT INTO samuidb.detallespedido
 (idPedido, idProducto, cantidad, precioUnitario, puntosGanados, comentarios) values
@@ -194,3 +194,62 @@ INSERT INTO samuidb.detallespedido
 
 INSERT INTO samuidb.movimientospuntos (idPromocion, idDetallePedido, idSocio, puntos) values
 (null, 8, 2, 110);
+
+-- 4
+INSERT INTO samuidb.pedidos
+(idPuntoVenta, idSocio, idEmpleado, idEstado, observaciones, fechaPedido) values
+(2, 3, null, 3, 'Abonó con efectivo en caja', DATE_SUB(NOW(), INTERVAL 10 DAY));
+
+INSERT INTO samuidb.detallespedido
+(idPedido, idProducto, cantidad, precioUnitario, puntosGanados, comentarios) values
+(4, 1, 1, 280, 28,'Crema Chantilly');
+
+INSERT INTO samuidb.detallespedido
+(idPedido, idProducto, cantidad, precioUnitario, puntosGanados, comentarios) values
+(4, 2, 1, 500, 50,'Tiramisú y Banana Split');
+
+INSERT INTO samuidb.movimientospuntos (idPromocion, idDetallePedido, idSocio, puntos) values
+(null, 4, 3, 48);
+
+INSERT INTO samuidb.movimientospuntos (idPromocion, idDetallePedido, idSocio, puntos) values
+(null, 4, 3, 28);
+
+
+-- 5
+INSERT INTO samuidb.pedidos
+(idPuntoVenta, idSocio, idEmpleado, idEstado, observaciones, fechaPedido) values
+(1, 5, null, 1, 'Abonó con tarjeta en caja', DATE_SUB(NOW(), INTERVAL 10 DAY));
+
+INSERT INTO samuidb.detallespedido
+(idPedido, idProducto, cantidad, precioUnitario, puntosGanados,comentarios) values
+(5, 3, 1, 800, 80,'Crema Tramontana');
+
+INSERT INTO samuidb.detallespedido
+(idPedido, idProducto, cantidad, precioUnitario, puntosGanados) values
+(5, 7, 5, 60, 30);
+
+INSERT INTO samuidb.movimientospuntos (idPromocion, idDetallePedido, idSocio, puntos) values
+(null, 5, 5, 80);
+
+INSERT INTO samuidb.movimientospuntos (idPromocion, idDetallePedido, idSocio, puntos) values
+(null, 5, 5, 30);
+
+
+-- 6
+INSERT INTO samuidb.pedidos
+(idPuntoVenta, idSocio, idEmpleado, idEstado, observaciones, fechaPedido) values
+(2, 6, null, 3, 'Abonó con efectivo en caja', DATE_SUB(NOW(), INTERVAL 10 DAY));
+
+INSERT INTO samuidb.detallespedido
+(idPedido, idProducto, cantidad, precioUnitario, puntosGanados) values
+(6, 6, 1, 75, 7);
+
+INSERT INTO samuidb.detallespedido
+(idPedido, idProducto, cantidad, precioUnitario, puntosGanados) values
+(6, 9, 1, 750, 75);
+
+INSERT INTO samuidb.movimientospuntos (idPromocion, idDetallePedido, idSocio, puntos) values
+(null, 6, 6, 7);
+
+INSERT INTO samuidb.movimientospuntos (idPromocion, idDetallePedido, idSocio, puntos) values
+(null, 6, 6, 75);
