@@ -141,3 +141,23 @@ CREATE TABLE `samuidb`.`MovimientosPuntos` (
     `activo` boolean NOT NULL,
     PRIMARY KEY (`id`)
 ); 
+
+CREATE TABLE `samuidb`.`TiposPago`(
+	`id` int NOT NULL AUTO_INCREMENT,
+	`nombre` varchar(32) NOT NULL,
+	PRIMARY KEY(`id`)
+);
+
+CREATE TABLE `samuidb`.`Cobros` (
+	`idTransaccion` int NOT NULL AUTO_INCREMENT,
+	`idPedido` int NOT NULL,
+	`idTipoPago` int NOT NULL,
+	`idEmpleado` int NOT NULL,
+	`fechaCobro` datetime NOT NULL,
+	`codigoAutorizacion` int NOT NULL,
+	`montoCobrado` double NOT NULL,
+	PRIMARY KEY (`idTransaccion`),
+	FOREIGN KEY (`idPedido`) REFERENCES Pedidos(`id`), 
+	FOREIGN KEY (`idTipoPago`) REFERENCES TiposPago(`id`),
+	FOREIGN KEY (`idEmpleado`) REFERENCES Empleados(`id`)
+);
