@@ -30,22 +30,22 @@ INSERT INTO samuidb.puntosventa (nombre) values ('Web');
 
 -- Socios
 INSERT INTO samuidb.socios (idUsuario,nombre,apellido,domicilio,email,dni,telefono,fechaAlta,fechaBaja) 
-values (1,'agustin','manyito','messi street 123','manyo@hotmail.com','41236598','35136544782',NOW(),NULL);
+values (1,'agustin','manyito','messi street 123','manyo@hotmail.com','42154654','35136544782',NOW(),NULL);
 INSERT INTO samuidb.socios (idUsuario,nombre,apellido,domicilio,email,dni,telefono,fechaAlta,fechaBaja) 
-values (4,'pablo','monticoli','ovidio lagos','pablo@hotmail.com','4214122','3525555444',NOW(),NULL);
+values (4,'pablo','monticoli','ovidio lagos','pablo@hotmail.com','42162165','3525555444',NOW(),NULL);
 INSERT INTO samuidb.socios (idUsuario,nombre,apellido,domicilio,email,dni,telefono,fechaAlta,fechaBaja) 
-values (null,'Lionel','Messi','Alguna Calle 123','messi@hotmail.com','26598987','0115481852',NOW(),NULL);
+values (null,'Lionel','Messi','Alguna Calle 123','messi@hotmail.com','35255654','0115481852',NOW(),NULL);
 INSERT INTO samuidb.socios (idUsuario,nombre,apellido,domicilio,email,dni,telefono,fechaAlta,fechaBaja) 
-values (null,'Linus','Sebastian','Canada 555','linussy@linustechtips.net','8975512','0358174226',NOW(),NULL);
+values (null,'Linus','Sebastian','Canada 555','linussy@linustechtips.net','44000667','0358174226',NOW(),NULL);
 
 INSERT INTO samuidb.socios (idUsuario,nombre,apellido,domicilio,email,dni,telefono,fechaAlta,fechaBaja) 
-values (null,'Rodrigo','De Pual','Madrid 255','rodrigo@hotmail.com','42256365','0351546987',NOW(),NULL);
+values (null,'Rodrigo','De Pual','Madrid 255','rodrigo@hotmail.com','38000874','0351546987',NOW(),NULL);
 INSERT INTO samuidb.socios (idUsuario,nombre,apellido,domicilio,email,dni,telefono,fechaAlta,fechaBaja) 
-values (null,'Franco','Moises','Colon 287','francoMoises@hotmail.com','789521','0351897654',NOW(),NULL);
+values (null,'Franco','Moises','Colon 287','francoMoises@hotmail.com','44569852','0351897654',NOW(),NULL);
 INSERT INTO samuidb.socios (idUsuario,nombre,apellido,domicilio,email,dni,telefono,fechaAlta,fechaBaja) 
-values (null,'Victor','Bazan','24 de septiembre 547','victor@hotmail.com','852147','0351896654',NOW(),NULL);
+values (null,'Victor','Bazan','24 de septiembre 547','victor@hotmail.com','30526987','0351896654',NOW(),NULL);
 INSERT INTO samuidb.socios (idUsuario,nombre,apellido,domicilio,email,dni,telefono,fechaAlta,fechaBaja) 
-values (null,'Angel','Di Maria','España 549','angelito@hotmail.com','693542','0351852459',NOW(),NULL);
+values (null,'Angel','Di Maria','España 549','angelito@hotmail.com','35025412','0351852459',NOW(),NULL);
 
 
 -- Estados de pedido
