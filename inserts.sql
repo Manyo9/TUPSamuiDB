@@ -92,7 +92,7 @@ values ('Salsa de dulce de leche', 200.00, 'Salsa líquida de dulce de leche par
 
 -- Promociones
 INSERT INTO samuidb.promociones (nombre, descripcion, precioPuntos, fechaDesde, fechaHasta) values
-('Promo Palitos bombon', 'Llevate 4 palitos bombon.', 560, DATE_SUB(NOW(), INTERVAL 1 DAY), DATE_ADD(NOW(), INTERVAL 10 DAY));
+('Promo Palitos bombon', 'Llevate 4 palitos bombon', 560, DATE_SUB(NOW(), INTERVAL 1 DAY), DATE_ADD(NOW(), INTERVAL 10 DAY));
 INSERT INTO samuidb.promociones (nombre, descripcion, precioPuntos, fechaDesde, fechaHasta) values
 ('Promo kg y litro', 'Llevate 1kg de helado y un pote de litro con gustos a elección', 3700, DATE_SUB(NOW(), INTERVAL 15 DAY), DATE_ADD(NOW(), INTERVAL 15 DAY));
 INSERT INTO samuidb.promociones (nombre, descripcion, precioPuntos, fechaDesde, fechaHasta) values
