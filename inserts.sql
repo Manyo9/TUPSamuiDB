@@ -3,6 +3,12 @@ INSERT INTO samuidb.roles (nombre) values ('Socio');
 INSERT INTO samuidb.roles (nombre) values ('Empleado');
 INSERT INTO samuidb.roles (nombre) values ('Admin');
 
+-- Tipos de Pago
+INSERT INTO samuidb.tipospago (nombre) values ('Efectivo');
+INSERT INTO samuidb.tipospago (nombre) values ('Tarjeta de Débito');
+INSERT INTO samuidb.tipospago (nombre) values ('Tarjeta de Crédito');
+INSERT INTO samuidb.tipospago (nombre) values ('Mercado Pago');
+
 -- Usuarios
 INSERT INTO samuidb.usuarios (idRol, usuario, contrasenia, fechaAlta) values (1, "manyouser", "manyo123", NOW());
 INSERT INTO samuidb.usuarios (idRol, usuario, contrasenia, fechaAlta) values (2, "manyoempleado", "manyo789", NOW());
