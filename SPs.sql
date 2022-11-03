@@ -572,4 +572,12 @@ BEGIN
 	order by puntos desc
 	limit limite;
 END //
+
+##################### TIPOS DE PAGO #####################
+-- GET all tipos de pago
+CREATE PROCEDURE spObtenerTiposPago()
+BEGIN
+	select id,nombre from tipospago;
+END //
+
 DELIMITER ;
