@@ -205,6 +205,22 @@ BEGIN
     join estadospedido ep on p.idEstado = ep.id;
 END //
 
+-- GET Pedidos pendientes
+CREATE PROCEDURE spObtenerPedidosPendientes()
+BEGIN
+    select p.id, pv.nombre as puntoVenta,
+    CONCAT(so.apellido,' ',so.nombre) as socio,
+    CONCAT(em.apellido,' ',em.nombre) as empelado,
+    ep.nombre as estado,
+    p.observaciones, p.fechaPedido
+    from pedidos p 
+    join puntosventa pv on p.idPuntoVenta = pv.id
+    left join socios so on p.idSocio = so.id
+    left join empleados em on p.idEmpleado = em.id
+    join estadospedido ep on p.idEstado = ep.id
+    where ep.id = 1 or ep.id = 2;
+END //
+
 -- GET Pedido by ID
 CREATE PROCEDURE spObtenerPedidoPorId(
 	IN id1 int
