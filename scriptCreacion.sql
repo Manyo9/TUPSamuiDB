@@ -152,7 +152,7 @@ CREATE TABLE `samuidb`.`Cobros` (
 	`idTransaccion` int NOT NULL AUTO_INCREMENT,
 	`idPedido` int NOT NULL,
 	`idTipoPago` int NOT NULL,
-	`idEmpleado` int NOT NULL,
+	`idEmpleado` int,
 	`fechaCobro` datetime NOT NULL,
 	`codigoAutorizacion` int NOT NULL,
 	`montoCobrado` double NOT NULL,
