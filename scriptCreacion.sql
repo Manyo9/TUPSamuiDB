@@ -154,7 +154,7 @@ CREATE TABLE `samuidb`.`Cobros` (
 	`idTipoPago` int NOT NULL,
 	`idEmpleado` int,
 	`fechaCobro` datetime NOT NULL,
-	`codigoAutorizacion` int NOT NULL,
+	`codigoAutorizacion` int,
 	`montoCobrado` double NOT NULL,
 	PRIMARY KEY (`idTransaccion`),
 	FOREIGN KEY (`idPedido`) REFERENCES Pedidos(`id`), 
