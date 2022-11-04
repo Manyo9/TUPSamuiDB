@@ -615,4 +615,10 @@ BEGIN
     UPDATE pedidos set idEstado = 2 where id=idPedido1;
 END //
 
+-- GET all estados de pedido
+CREATE PROCEDURE spObtenerEstadosPedido()
+BEGIN
+	select id,nombre from estadosPedido;
+END //
+
 DELIMITER ;
