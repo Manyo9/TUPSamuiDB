@@ -241,14 +241,16 @@ END //
 
 -- GET Pedidos de un socio
 CREATE PROCEDURE spObtenerMisPedidos(
-	IN idSocio int
+	IN idSocio1 int
 )
 BEGIN
     select p.id,
     ep.nombre as estado,
 	p.fechaPedido
     from pedidos p
-    join estadospedido ep on p.idEstado = ep.id;
+    join estadospedido ep on p.idEstado = ep.id
+    where p.idSocio = idSocio1
+    order by p.fechaPedido desc;
 END //
 
 -- Get detalles de un pedido
