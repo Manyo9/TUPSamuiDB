@@ -195,7 +195,7 @@ CREATE PROCEDURE spObtenerPedidos()
 BEGIN
     select p.id, pv.nombre as puntoVenta,
     CONCAT(so.apellido,' ',so.nombre) as socio,
-    CONCAT(em.apellido,' ',em.nombre) as empelado,
+    CONCAT(em.apellido,' ',em.nombre) as empleado,
     ep.nombre as estado,
     p.observaciones, p.fechaPedido
     from pedidos p 
@@ -210,7 +210,7 @@ CREATE PROCEDURE spObtenerPedidosPendientes()
 BEGIN
     select p.id, pv.nombre as puntoVenta,
     CONCAT(so.apellido,' ',so.nombre) as socio,
-    CONCAT(em.apellido,' ',em.nombre) as empelado,
+    CONCAT(em.apellido,' ',em.nombre) as empleado,
     ep.nombre as estado,
     p.observaciones, p.fechaPedido
     from pedidos p 
