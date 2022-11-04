@@ -341,7 +341,7 @@ END //
 -- GET all socios
 CREATE PROCEDURE spObtenerSocios()
 BEGIN
-	select id, dni, nombre, apellido from socios;
+	select id, dni, nombre, apellido,fechaBaja from socios;
 END //
 
 -- GET by ID
