@@ -609,6 +609,7 @@ IN montoCobrado1 double
 BEGIN 
 	INSERT INTO cobros(idPedido,idTipoPago,idEmpleado,fechaCobro,codigoAutorizacion,montoCobrado) 
     VALUES (idPedido1,idTipoPago1,idEmpleado1,NOW(),codigoAutorizacion1,montoCobrado1);
+    UPDATE pedidos set idEstado = 2 where id=idPedido1;
 END //
 
 DELIMITER ;
