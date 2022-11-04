@@ -565,7 +565,8 @@ BEGIN
 	on d.idProducto = p.id 
 	join pedidos pe on d.idPedido = pe.id
 	where fechaPedido between fechaDesde and fechaHasta
-	group by p.id;
+	group by p.id
+    order by p.id;
 END //
 
 CREATE PROCEDURE spSociosConMasPuntos(
