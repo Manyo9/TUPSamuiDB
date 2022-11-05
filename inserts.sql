@@ -259,3 +259,6 @@ INSERT INTO samuidb.movimientospuntos (idPromocion, idDetallePedido, idSocio, pu
 
 INSERT INTO samuidb.movimientospuntos (idPromocion, idDetallePedido, idSocio, puntos) values
 (null, 6, 6, 75);
+
+-- Cobros
+INSERT INTO cobros(idPedido,idTipoPago,idEmpleado,fechaCobro,codigoAutorizacion,montoCobrado) values(1,1,null,NOW(),455,760);
