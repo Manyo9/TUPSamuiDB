@@ -621,4 +621,27 @@ BEGIN
 	select id,nombre from estadosPedido;
 END //
 
+-- GET puntos by idSocio
+CREATE PROCEDURE spObtenerPuntosDeSocio(
+    IN idSocio1 int
+)
+BEGIN
+	select ifnull(a.puntosPositivos,0) - ifnull(b.puntosNegativos,0) as puntos
+        from (
+            select idSocio, sum(puntos) as puntosPositivos
+            from movimientospuntos
+            where idSocio = idSocio1
+            and idDetallePedido is not null
+            group by idSocio
+        ) as a left join 
+        (
+            select idSocio, sum(puntos) as puntosNegativos
+            from movimientospuntos
+            where idSocio = idSocio1
+            and idPromocion is not null
+            group by idSocio
+        ) as b
+        on a.idSocio = b.idSocio;
+END //
+
 DELIMITER ;
