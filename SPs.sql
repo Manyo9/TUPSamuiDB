@@ -619,7 +619,7 @@ IN fechaHasta1 datetime
 BEGIN
 	SELECT c.idTipoPago 'idTipoPago', tp.nombre, count(tp.id) 'cantCobros',sum(c.montoCobrado) 'total'
     FROM cobros c join tipospago tp on c.idTipoPago = tp.id
-    WHERE fechaAlta between fechaDesde1 and fechaHasta1;
+    WHERE fechaCobro between fechaDesde1 and fechaHasta1
     GROUP BY c.idTipoPago
     ORDER BY tp.nombre asc;
 END //    
