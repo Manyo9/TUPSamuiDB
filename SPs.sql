@@ -293,6 +293,14 @@ BEGIN
 	select id,nombre, activo from gustos;
 END //
 
+-- GET gusto by id
+CREATE PROCEDURE spObtenerGustoPorId(
+    IN id1 int
+)
+BEGIN
+	select id,nombre, activo from gustos
+    where id = id1;
+END //
 
 -- UPDATE gusto by id
 CREATE PROCEDURE spEditarGusto(
