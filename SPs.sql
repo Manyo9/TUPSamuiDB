@@ -569,7 +569,7 @@ BEGIN
 	SELECT s.id ID,s.nombre as 'NombreSocio',count(p.id) as 'cantPedidos'
     FROM socios s join pedidos p on s.id=p.idSocio
     WHERE fechaAlta between fechaDesde1 and fechaHasta1
-        GROUP BY nombre
+    GROUP BY nombre
 	ORDER BY cantPedidos DESC;
 END //
 
@@ -610,6 +610,19 @@ BEGIN
 	order by puntos desc
 	limit limite;
 END //
+
+-- Reportes COBROS
+CREATE PROCEDURE spReporteCobros(
+IN fechaDesde1 datetime,
+IN fechaHasta1 datetime
+)
+BEGIN
+	SELECT c.idTipoPago 'idTipoPago', tp.nombre, count(tp.id) 'cantCobros',sum(c.montoCobrado) 'total'
+    FROM cobros c join tipospago tp on c.idTipoPago = tp.id
+    WHERE fechaAlta between fechaDesde1 and fechaHasta1;
+    GROUP BY c.idTipoPago
+    ORDER BY tp.nombre asc;
+END //    
 
 ##################### TIPOS DE PAGO #####################
 -- GET all tipos de pago
