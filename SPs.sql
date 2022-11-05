@@ -202,7 +202,8 @@ BEGIN
     join puntosventa pv on p.idPuntoVenta = pv.id
     left join socios so on p.idSocio = so.id
     left join empleados em on p.idEmpleado = em.id
-    join estadospedido ep on p.idEstado = ep.id;
+    join estadospedido ep on p.idEstado = ep.id
+    order by fechaPedido asc;
 END //
 
 -- GET Pedidos pendientes
