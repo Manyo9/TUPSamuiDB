@@ -352,6 +352,15 @@ BEGIN
 	select * from socios where id = idSocio;
 END //
 
+-- GET by DNI
+CREATE PROCEDURE spObtenerSocioByDNI(
+	IN dni1 int
+)
+BEGIN
+	select * from socios where dni = dni1;
+END //
+
+
 -- Modificar Socio
 CREATE PROCEDURE spModificarSocio(
 	IN nombre1 varchar(30),
