@@ -38,12 +38,16 @@ END //
 -- NEW Usuario Socio
 CREATE PROCEDURE spNuevoUsuarioSocio(
 IN usuario1 varchar(30),
-IN contrasenia1 varchar(32)
+IN contrasenia1 varchar(32),
+IN dniSocio1 int
 )
 BEGIN
-	select id into @idSoc from roles
-    where nombre = 'Socio';
+	SELECT id into @idSoc from roles
+    WHERE nombre = 'Socio';
 	INSERT INTO usuarios(idRol, usuario, contrasenia, fechaAlta) values (@idSoc, usuario1, contrasenia1, NOW());
+    UPDATE socios set idUsuario = last_insert_id() 
+    WHERE dni = dniSocio1
+    AND idUsuario is null;
 END//
 
 -- NEW Usuario Empleado
