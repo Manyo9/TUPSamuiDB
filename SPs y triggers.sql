@@ -680,3 +680,21 @@ BEGIN
 END //
 
 DELIMITER ;
+
+-- TRIGGER sumar puntos a socio
+
+DELIMITER $$
+CREATE TRIGGER after_detalles_insert
+AFTER INSERT
+ON detallespedido FOR EACH ROW
+BEGIN
+	SELECT idSocio INTO @idSocio
+    FROM pedidos 
+    WHERE id = NEW.idPedido;
+    IF @idSocio IS NOT NULL THEN
+        INSERT INTO movimientospuntos (idPromocion, idDetallePedido, idSocio, puntos) 
+        VALUES (null, NEW.idDetalle , @idSocio, NEW.puntosGanados);
+    END IF;
+END$$;
+
+DELIMITER ;
