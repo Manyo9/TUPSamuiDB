@@ -571,7 +571,7 @@ IN fechaDesde1 datetime,
 IN fechaHasta1 datetime
 )
 BEGIN 
-	SELECT s.id ID,s.nombre as 'NombreSocio',count(p.id) as 'cantPedidos'
+	SELECT s.id ID,CONCAT(s.apellido,' ',s.nombre) as 'NombreSocio',count(p.id) as 'cantPedidos'
     FROM socios s join pedidos p on s.id=p.idSocio
     WHERE fechaAlta between fechaDesde1 and fechaHasta1
     GROUP BY nombre
