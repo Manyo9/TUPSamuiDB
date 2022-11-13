@@ -65,10 +65,10 @@ INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activ
 values ('Samui Batido', 800.00, 'Batido de helado con leche, un gusto de helado a elección.', null, true, true, 80, '../../../../assets/imgProductos/milkShake.jpg');
 
 INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, disponible, puntosGanados, urlImagen)
-values ('1kg healdo', 1100.00, '1kg de helado, elegir hasta cuatro gustos.', null, true, true, 110, '../../../../assets/imgProductos/1kghelado.jpg');
+values ('1kg helado', 1100.00, '1kg de helado, elegir hasta cuatro gustos.', null, true, true, 110, '../../../../assets/imgProductos/1kghelado.jpg');
 
 INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, disponible, puntosGanados, urlImagen)
-values ('1/2 kg healdo', 650.00, 'Medio kg de helado, elegir hasta tres gustos.', null, true, true, 65, '../../../../assets/imgProductos/medioKg.jpg');
+values ('1/2 kg helado', 650.00, 'Medio kg de helado, elegir hasta tres gustos.', null, true, true, 65, '../../../../assets/imgProductos/medioKg.jpg');
 
 INSERT INTO samuidb.productos (nombre, precio, descripcion, observaciones, activo, disponible, puntosGanados, urlImagen)
 values ('Palito bombón', 75.00, 'Helado de crema bañado en chocolate en palito.', null, true, true, 7, '../../../../assets/imgProductos/palitoBombon.jfif');
