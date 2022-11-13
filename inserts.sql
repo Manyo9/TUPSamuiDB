@@ -10,19 +10,19 @@ INSERT INTO samuidb.tipospago (nombre) values ('Tarjeta de Crédito');
 INSERT INTO samuidb.tipospago (nombre) values ('Mercado Pago');
 
 -- Usuarios
-INSERT INTO samuidb.usuarios (idRol, usuario, contrasenia, fechaAlta) values (1, "manyouser", "manyo123", NOW());
-INSERT INTO samuidb.usuarios (idRol, usuario, contrasenia, fechaAlta) values (2, "manyoempleado", "manyo789", NOW());
-INSERT INTO samuidb.usuarios (idRol, usuario, contrasenia, fechaAlta) values (3, "manyoadmin", "manyo456", NOW());
+INSERT INTO samuidb.usuarios (idRol, usuario, contrasenia, fechaAlta) values (1, "samuiuser", "manyo123", NOW());
+INSERT INTO samuidb.usuarios (idRol, usuario, contrasenia, fechaAlta) values (2, "samuiempleado", "manyo789", NOW());
+INSERT INTO samuidb.usuarios (idRol, usuario, contrasenia, fechaAlta) values (3, "samuiadmin", "manyo456", NOW());
 INSERT INTO samuidb.usuarios (idRol, usuario, contrasenia, fechaAlta) values (1, "pmonticoli", "qweasd123", NOW());
 INSERT INTO samuidb.usuarios (idRol, usuario, contrasenia, fechaAlta) values (2, "abraguas", "somebody", NOW());
 
 -- Empleados
 INSERT into samuidb.empleados (idUsuario, nombre, apellido, telefono, email, dni, fechaAlta, fechaBaja)
-values (2, 'empleado', 'manyo', '3518963212', 'manyo@samui.com', 41815522, NOW(), NULL);
+values (2, 'Empleado', 'Samui', '3518963212', 'manyo@samui.com', 41815522, NOW(), NULL);
 INSERT into samuidb.empleados (idUsuario, nombre, apellido, telefono, email, dni, fechaAlta, fechaBaja)
-values (3, 'admin', 'manyo', '3512548963', 'admin@samui.com', 40698325, NOW(), NULL);
+values (3, 'Admin', 'Samui', '3512548963', 'admin@samui.com', 40698325, NOW(), NULL);
 INSERT into samuidb.empleados (idUsuario, nombre, apellido, telefono, email, dni, fechaAlta, fechaBaja)
-values (5, 'empleado', 'franco', '3513287412', 'abraguas@samui.com', 42587123, NOW(), NULL);
+values (5, 'Franco', 'Employee', '3513287412', 'abraguas@samui.com', 42587123, NOW(), NULL);
 
 -- Puntos de venta
 INSERT INTO samuidb.puntosventa (nombre) values ('Sucursal Samui - Caja 1');
@@ -30,9 +30,9 @@ INSERT INTO samuidb.puntosventa (nombre) values ('Web');
 
 -- Socios
 INSERT INTO samuidb.socios (idUsuario,nombre,apellido,domicilio,email,dni,telefono,fechaAlta,fechaBaja) 
-values (1,'agustin','manyito','messi street 123','manyo@hotmail.com','42154654','35136544782',NOW(),NULL);
+values (1,'Agustín','Manyito','messi street 123','manyo@hotmail.com','42154654','35136544782',NOW(),NULL);
 INSERT INTO samuidb.socios (idUsuario,nombre,apellido,domicilio,email,dni,telefono,fechaAlta,fechaBaja) 
-values (4,'pablo','monticoli','ovidio lagos','pablo@hotmail.com','42162165','3525555444',NOW(),NULL);
+values (4,'Pablo','Montícoli','ovidio lagos','pablo@hotmail.com','42162165','3525555444',NOW(),NULL);
 INSERT INTO samuidb.socios (idUsuario,nombre,apellido,domicilio,email,dni,telefono,fechaAlta,fechaBaja) 
 values (null,'Lionel','Messi','Alguna Calle 123','messi@hotmail.com','35255654','0115481852',NOW(),NULL);
 INSERT INTO samuidb.socios (idUsuario,nombre,apellido,domicilio,email,dni,telefono,fechaAlta,fechaBaja) 
